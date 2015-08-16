@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Attention,Hexo,tech," />
+  <meta name="keywords" content="tech," />
 
 
 
@@ -39,23 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="前言 关于怎么利用Git Page 和Hexo搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： Hexo搭建教程 .
-注意事项：
-第一点要注意的,在 github.com上创建完 yourname.github.io 之后 ,记得找到仓库右侧的 Settings-&amp;gt;GitHub Pages选项,然后点击 Automatic page generator ,然后一路确定">
+<meta name="description" content="最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下123456789101112131415&amp;lt;?phpheader(&quot;Content-type: text/html; charset=utf-8&quot;);$ch = curl_init();curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);// 设置UR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建Hexo注意事项">
-<meta property="og:url" content="http://stayhungry.me/2015/07/26/搭建Hexo注意事项/index.html">
+<meta property="og:title" content="curl访问https配置">
+<meta property="og:url" content="http://stayhungry.me/2014/04/16/curl访问https配置/index.html">
 <meta property="og:site_name" content="怀旧的小艾">
-<meta property="og:description" content="前言 关于怎么利用Git Page 和Hexo搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： Hexo搭建教程 .
-注意事项：
-第一点要注意的,在 github.com上创建完 yourname.github.io 之后 ,记得找到仓库右侧的 Settings-&amp;gt;GitHub Pages选项,然后点击 Automatic page generator ,然后一路确定">
-<meta property="og:image" content="http://i3.tietuku.com/a4e6993f3cda45e5.png">
-<meta property="og:updated_time" content="2015-08-16T11:40:55.494Z">
+<meta property="og:description" content="最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下123456789101112131415&amp;lt;?phpheader(&quot;Content-type: text/html; charset=utf-8&quot;);$ch = curl_init();curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);// 设置UR">
+<meta property="og:updated_time" content="2015-08-16T11:37:26.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建Hexo注意事项">
-<meta name="twitter:description" content="前言 关于怎么利用Git Page 和Hexo搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： Hexo搭建教程 .
-注意事项：
-第一点要注意的,在 github.com上创建完 yourname.github.io 之后 ,记得找到仓库右侧的 Settings-&amp;gt;GitHub Pages选项,然后点击 Automatic page generator ,然后一路确定">
+<meta name="twitter:title" content="curl访问https配置">
+<meta name="twitter:description" content="最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下123456789101112131415&amp;lt;?phpheader(&quot;Content-type: text/html; charset=utf-8&quot;);$ch = curl_init();curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);// 设置UR">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +58,7 @@
   };
 </script>
 
-    <title> 搭建Hexo注意事项 // 怀旧的小艾 </title>
+    <title> curl访问https配置 // 怀旧的小艾 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 <!--[if lte IE 8]>
@@ -176,7 +169,7 @@
           
           
             
-              搭建Hexo注意事项
+              curl访问https配置
             
           
         </h1>
@@ -185,8 +178,8 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-07-26T23:23:47+08:00" content="2015-07-26">
-            2015-07-26
+          <time itemprop="dateCreated" datetime="2014-04-16T13:16:55+08:00" content="2014-04-16">
+            2014-04-16
           </time>
         </span>
 
@@ -196,8 +189,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/26/搭建Hexo注意事项/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/26/搭建Hexo注意事项/" itemprop="commentsCount"></span>
+            <a href="/2014/04/16/curl访问https配置/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/04/16/curl访问https配置/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -211,21 +204,11 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="前言">前言</h3><p> 关于怎么利用<a href="https://pages.github.com/" target="_blank" rel="external">Git Page</a> 和<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： <a href="http://xuanwo.org/2015/03/26/hexo-intor/" target="_blank" rel="external">Hexo搭建教程</a> .</p>
-<h3 id="注意事项：">注意事项：</h3><ul>
-<li>第一点要注意的,在 <a href="https://github.com/" target="_blank" rel="external">github.com</a>上创建完 <code>yourname.github.io</code> 之后 ,记得找到仓库右侧的 <code>Settings</code>-&gt;<code>GitHub Pages</code>选项,然后点击 <code>Automatic page generator</code> ,然后一路确定,生成你的Github Page 单页,如图所示：<br><img src="http://i3.tietuku.com/a4e6993f3cda45e5.png" alt="1" title="开启Git Page单页"><br>至此,等待数分钟,你就可以通过<code>yourname.github.io</code>访问到你的<code>GitHub Pages</code>了.</li>
-</ul>
-<ul>
-<li><p>第二点要注意的,上传到github的时候,_config.yml中deploy下方配置github账号的时候,<code>type：</code>和git、<code>repository:</code> 和对应的字段之间记得有空格,如下：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#Deployment</span></span><br><span class="line">deploy<span class="value">:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第三点要注意的当你以上两个易错的细节注意之后,执行<code>hexo deploy</code>的时候,输入git用户名和密码就应该自动给你push了,而不用自己手动去<code>git add</code>,<code>git push</code>等操作.</p>
-</li>
-</ul>
-<ul>
-<li>最后一点是关于独立域名的.<br>在<code>github.com/youname/yourname.github.io</code>这个仓库添加<code>CNAME</code>文件和内容即可实现域名绑定.<br>但是每次本地执行<code>hexo clean</code> <code>hexo generate</code> 最后<code>hexo deploy</code>提交到<code>github</code>的时候你会发现<code>CNAME</code>被本地没有CNAME的版本覆盖了.<br>在此提供一个解决办法,<code>hexo deploy</code>的实现机制是将<code>nodejs</code>工具生成在<code>public</code>目录下的文件copy一份到<code>.deploy_git</code>这里,然后再从<code>.deploy_git</code>这个文件夹<code>push</code>到github,为解决CNAME被覆盖的问题,你要做的是：<br><ol><br><li>在<code>.deploy_git</code>目录里新建<code>CNAME</code>文件（内容是你的域名如<code>stayhungry.me</code>）,并执行git add CNAME.</li><br><li>在执行<code>hexo generate</code>之后,<code>hexo deploy</code>之前,复制1步骤中的<code>CNAME</code>文件到<code>public</code>目录下,紧接着再去hexo </li>deploy的时候就可以将CNAME上传到你的仓库了.<br></ol><br><em>当然这个问题还有一个更彻底的根治方法,就是找到<code>nodejs</code>生成模板文件的那一段代码,然后将<code>CNAME</code>文件也改成每次<code>hexo generate</code>都自动生成.如果你已经发现了,或者有更好的方法,欢迎您将你的研究成果发送到我的邮箱<code>hizhenghang@gmail.com</code>,以供我学习一下,我将不甚感激.当然我也会将您的方法同步到我的Blog,并署上你的大名.</em></li>
-</ul>
-<h4 id="7月26日补充：">7月26日补充：</h4><p>关于<code>CNAME</code>文件更好的解决方案：可以将<code>CNAME</code>文件放在<code>hexo/source</code>文件夹下，这样生成的时候，<code>nodejs</code>就会自动将<code>CNAME</code>文件同步到<code>public</code>目录下，而省去了手动添加的麻烦。<br><strong><em>[本篇·完]</em></strong></p>
+        <span itemprop="articleBody"><h3 id="最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下">最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line"><span class="variable">$ch</span> = curl_init();</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">// 设置URL和相应的选项</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_URL, <span class="string">"https://api.douban.com/v2/book/isbn/9787121174230"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">// 抓取内容并把它传递给浏览器</span><br><span class="line"><span class="variable">$res</span> = curl_<span class="built_in">exec</span>(<span class="variable">$ch</span>);</span><br><span class="line"><span class="variable">$res</span> = array(json_decode(<span class="variable">$res</span>));</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line"><span class="built_in">print</span>_r(<span class="variable">$res</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;/pre&gt;"</span>;</span><br><span class="line">curl_close(<span class="variable">$ch</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>此时是抓取不到内容的；在初始化(init)curl句柄之后，加上这个设置项</strong></p>
+<p><code>curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);</code><br>即设置之后的代码是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line"><span class="variable">$ch</span> = curl_init();</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>,CURLOPT_SSL_VERIFYPEER, <span class="literal">false</span>);  //设置之后可以访问https</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">// 设置URL和相应的选项</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_URL, <span class="string">"https://api.douban.com/v2/book/isbn/9787121174230"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">// 抓取URL并把它传递给浏览器</span><br><span class="line"><span class="variable">$res</span> = curl_<span class="built_in">exec</span>(<span class="variable">$ch</span>);</span><br><span class="line"><span class="variable">$res</span> = array(json_decode(<span class="variable">$res</span>));</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line"><span class="built_in">print</span>_r(<span class="variable">$res</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;/pre&gt;"</span>;</span><br><span class="line">curl_close(<span class="variable">$ch</span>);</span><br></pre></td></tr></table></figure>
+<p>一个小知识点,mark一下<br><strong><em>[本篇·完]</em></strong></p>
 </span>
       
     </div>
@@ -233,10 +216,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/Attention/" rel="tag">#Attention</a>
-          
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
           
             <a href="/tags/tech/" rel="tag">#tech</a>
           
@@ -247,13 +226,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/31/穿上夏装的北方，更美/" rel="prev">穿上夏装的北方,更美</a>
+              <a href="/2014/06/15/基础知识学习笔记/" rel="prev">基础知识温习笔记</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2014/10/08/快速排序即其优化/" rel="next">快速排序即其优化</a>
             
           </div>
         </div>
@@ -362,7 +339,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项："><span class="nav-number">2.</span> <span class="nav-text">注意事项：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7月26日补充："><span class="nav-number">2.1.</span> <span class="nav-text">7月26日补充：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下"><span class="nav-number">1.</span> <span class="nav-text">最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -418,9 +395,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'helloco';
-      var disqus_identifier = '2015/07/26/搭建Hexo注意事项/';
-      var disqus_title = '搭建Hexo注意事项';
-      var disqus_url = 'http://stayhungry.me/2015/07/26/搭建Hexo注意事项/';
+      var disqus_identifier = '2014/04/16/curl访问https配置/';
+      var disqus_title = 'curl访问https配置';
+      var disqus_url = 'http://stayhungry.me/2014/04/16/curl访问https配置/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

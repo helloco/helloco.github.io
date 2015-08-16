@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Attention,Hexo,tech," />
+  <meta name="keywords" content="tech," />
 
 
 
@@ -39,23 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="前言 关于怎么利用Git Page 和Hexo搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： Hexo搭建教程 .
-注意事项：
-第一点要注意的,在 github.com上创建完 yourname.github.io 之后 ,记得找到仓库右侧的 Settings-&amp;gt;GitHub Pages选项,然后点击 Automatic page generator ,然后一路确定">
+<meta name="description" content="sort() , asort() , ksort() 的用法
+sort():按值将传入的数组进行排序.例如:
+
+1234567&amp;lt;?php$fruits = array(	&quot;d&quot; =&amp;gt; &quot;lemon&quot;, &quot;a&quot; =&amp;gt; &quot;orange&quot;, &quot;b&quot; =&amp;gt; &quot;banana&quot;, &quot;c&quot; =&amp;gt; &quot;apple&quot;);sort($fruits);var_dump($fruits);?&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建Hexo注意事项">
-<meta property="og:url" content="http://stayhungry.me/2015/07/26/搭建Hexo注意事项/index.html">
+<meta property="og:title" content="基础知识温习笔记">
+<meta property="og:url" content="http://stayhungry.me/2014/06/15/基础知识学习笔记/index.html">
 <meta property="og:site_name" content="怀旧的小艾">
-<meta property="og:description" content="前言 关于怎么利用Git Page 和Hexo搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： Hexo搭建教程 .
-注意事项：
-第一点要注意的,在 github.com上创建完 yourname.github.io 之后 ,记得找到仓库右侧的 Settings-&amp;gt;GitHub Pages选项,然后点击 Automatic page generator ,然后一路确定">
-<meta property="og:image" content="http://i3.tietuku.com/a4e6993f3cda45e5.png">
-<meta property="og:updated_time" content="2015-08-16T11:40:55.494Z">
+<meta property="og:description" content="sort() , asort() , ksort() 的用法
+sort():按值将传入的数组进行排序.例如:
+
+1234567&amp;lt;?php$fruits = array(	&quot;d&quot; =&amp;gt; &quot;lemon&quot;, &quot;a&quot; =&amp;gt; &quot;orange&quot;, &quot;b&quot; =&amp;gt; &quot;banana&quot;, &quot;c&quot; =&amp;gt; &quot;apple&quot;);sort($fruits);var_dump($fruits);?&amp;">
+<meta property="og:updated_time" content="2015-08-16T11:53:36.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建Hexo注意事项">
-<meta name="twitter:description" content="前言 关于怎么利用Git Page 和Hexo搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： Hexo搭建教程 .
-注意事项：
-第一点要注意的,在 github.com上创建完 yourname.github.io 之后 ,记得找到仓库右侧的 Settings-&amp;gt;GitHub Pages选项,然后点击 Automatic page generator ,然后一路确定">
+<meta name="twitter:title" content="基础知识温习笔记">
+<meta name="twitter:description" content="sort() , asort() , ksort() 的用法
+sort():按值将传入的数组进行排序.例如:
+
+1234567&amp;lt;?php$fruits = array(	&quot;d&quot; =&amp;gt; &quot;lemon&quot;, &quot;a&quot; =&amp;gt; &quot;orange&quot;, &quot;b&quot; =&amp;gt; &quot;banana&quot;, &quot;c&quot; =&amp;gt; &quot;apple&quot;);sort($fruits);var_dump($fruits);?&amp;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +67,7 @@
   };
 </script>
 
-    <title> 搭建Hexo注意事项 // 怀旧的小艾 </title>
+    <title> 基础知识温习笔记 // 怀旧的小艾 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 <!--[if lte IE 8]>
@@ -176,7 +178,7 @@
           
           
             
-              搭建Hexo注意事项
+              基础知识温习笔记
             
           
         </h1>
@@ -185,8 +187,8 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-07-26T23:23:47+08:00" content="2015-07-26">
-            2015-07-26
+          <time itemprop="dateCreated" datetime="2014-06-15T18:42:12+08:00" content="2014-06-15">
+            2014-06-15
           </time>
         </span>
 
@@ -196,8 +198,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/26/搭建Hexo注意事项/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/26/搭建Hexo注意事项/" itemprop="commentsCount"></span>
+            <a href="/2014/06/15/基础知识学习笔记/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/06/15/基础知识学习笔记/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -211,21 +213,32 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="前言">前言</h3><p> 关于怎么利用<a href="https://pages.github.com/" target="_blank" rel="external">Git Page</a> 和<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： <a href="http://xuanwo.org/2015/03/26/hexo-intor/" target="_blank" rel="external">Hexo搭建教程</a> .</p>
-<h3 id="注意事项：">注意事项：</h3><ul>
-<li>第一点要注意的,在 <a href="https://github.com/" target="_blank" rel="external">github.com</a>上创建完 <code>yourname.github.io</code> 之后 ,记得找到仓库右侧的 <code>Settings</code>-&gt;<code>GitHub Pages</code>选项,然后点击 <code>Automatic page generator</code> ,然后一路确定,生成你的Github Page 单页,如图所示：<br><img src="http://i3.tietuku.com/a4e6993f3cda45e5.png" alt="1" title="开启Git Page单页"><br>至此,等待数分钟,你就可以通过<code>yourname.github.io</code>访问到你的<code>GitHub Pages</code>了.</li>
+        <span itemprop="articleBody"><h3 id="sort()_,_asort()_,_ksort()_的用法">sort() , asort() , ksort() 的用法</h3><ul>
+<li><strong><em>sort():按值将传入的数组进行排序.例如:</em></strong></li>
 </ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$fruits</span> = <span class="keyword">array</span>(</span><br><span class="line">	<span class="string">"d"</span> =&gt; <span class="string">"lemon"</span>, <span class="string">"a"</span> =&gt; <span class="string">"orange"</span>, <span class="string">"b"</span> =&gt; <span class="string">"banana"</span>, <span class="string">"c"</span> =&gt; <span class="string">"apple"</span></span><br><span class="line">);</span><br><span class="line">sort(<span class="variable">$fruits</span>);</span><br><span class="line">var_dump(<span class="variable">$fruits</span>);</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>sort()函数会按照value值进行排序结果为：</p>
+<p><code>fruits[0] = apple fruits[1] = banana fruits[2] = lemon fruits[3] = orange</code><br><em>注意：sort函数为数组的元素赋予新的键名。并删除原有键名，并重新排序.</em></p>
 <ul>
-<li><p>第二点要注意的,上传到github的时候,_config.yml中deploy下方配置github账号的时候,<code>type：</code>和git、<code>repository:</code> 和对应的字段之间记得有空格,如下：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#Deployment</span></span><br><span class="line">deploy<span class="value">:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第三点要注意的当你以上两个易错的细节注意之后,执行<code>hexo deploy</code>的时候,输入git用户名和密码就应该自动给你push了,而不用自己手动去<code>git add</code>,<code>git push</code>等操作.</p>
-</li>
+<li><strong><em>asort()函数:跟sort一样也是对数组排序，但是asort保持键名。对上述数组排序后的结果为:</em></strong></li>
 </ul>
+<p><code>fruits[c] = apple fruits[b] = banana fruits[d] = lemon fruits[a] = orange</code></p>
 <ul>
-<li>最后一点是关于独立域名的.<br>在<code>github.com/youname/yourname.github.io</code>这个仓库添加<code>CNAME</code>文件和内容即可实现域名绑定.<br>但是每次本地执行<code>hexo clean</code> <code>hexo generate</code> 最后<code>hexo deploy</code>提交到<code>github</code>的时候你会发现<code>CNAME</code>被本地没有CNAME的版本覆盖了.<br>在此提供一个解决办法,<code>hexo deploy</code>的实现机制是将<code>nodejs</code>工具生成在<code>public</code>目录下的文件copy一份到<code>.deploy_git</code>这里,然后再从<code>.deploy_git</code>这个文件夹<code>push</code>到github,为解决CNAME被覆盖的问题,你要做的是：<br><ol><br><li>在<code>.deploy_git</code>目录里新建<code>CNAME</code>文件（内容是你的域名如<code>stayhungry.me</code>）,并执行git add CNAME.</li><br><li>在执行<code>hexo generate</code>之后,<code>hexo deploy</code>之前,复制1步骤中的<code>CNAME</code>文件到<code>public</code>目录下,紧接着再去hexo </li>deploy的时候就可以将CNAME上传到你的仓库了.<br></ol><br><em>当然这个问题还有一个更彻底的根治方法,就是找到<code>nodejs</code>生成模板文件的那一段代码,然后将<code>CNAME</code>文件也改成每次<code>hexo generate</code>都自动生成.如果你已经发现了,或者有更好的方法,欢迎您将你的研究成果发送到我的邮箱<code>hizhenghang@gmail.com</code>,以供我学习一下,我将不甚感激.当然我也会将您的方法同步到我的Blog,并署上你的大名.</em></li>
+<li><strong><em>ksort()函数:k（可理解为key的简写），ksort函数按照键名排序，对上述数组排序后的结果为:</em></strong><br><code>fruits[a] = orange fruits[b] = banana fruits[c] = apple fruits[d] = lemon</code></li>
 </ul>
-<h4 id="7月26日补充：">7月26日补充：</h4><p>关于<code>CNAME</code>文件更好的解决方案：可以将<code>CNAME</code>文件放在<code>hexo/source</code>文件夹下，这样生成的时候，<code>nodejs</code>就会自动将<code>CNAME</code>文件同步到<code>public</code>目录下，而省去了手动添加的麻烦。<br><strong><em>[本篇·完]</em></strong></p>
+<hr>
+<h3 id="PHP中定义一个全局变量的两种方式:">PHP中定义一个全局变量的两种方式:</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="variable">$foo</span> = <span class="string">"local variable"</span>;</span><br><span class="line">	<span class="keyword">global</span> <span class="variable">$a</span>;</span><br><span class="line">	<span class="variable">$a</span> = <span class="variable">$a</span>*<span class="variable">$a</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'$foo in global scope: '</span> . <span class="variable">$GLOBALS</span>[<span class="string">"foo"</span>] . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'$foo in current scope: '</span> . <span class="variable">$foo</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="variable">$foo</span> = <span class="string">"Example content"</span>;</span><br><span class="line">test();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>以上输出:</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$foo</span> <span class="keyword">in</span> <span class="built_in">global</span> scope: Example content</span><br><span class="line"><span class="variable">$foo</span> <span class="keyword">in</span> current scope: <span class="built_in">local</span> <span class="built_in">variable</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="引用(reference_in_php)">引用(reference in php)</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$c</span> = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cc</span><span class="params">(&amp;<span class="variable">$a</span>)</span></span>&#123;</span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span>-<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cc(<span class="variable">$c</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$c</span>;</span></span><br></pre></td></tr></table></figure>
+<p>此时$c 为99.(类比c语言中的指针)</p>
+<hr>
+<h3 id="@foo()_和foo()_的区别：">@foo()  和foo() 的区别：</h3><p>加上@之后，后面的warning，甚至严重错误都会被屏蔽输出，所以慎用此符号.</p>
+<hr>
+<h3 id="$$a_的用法">$$a 的用法</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">"hello"</span>;</span><br><span class="line"><span class="variable">$$a</span> = <span class="string">"world"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$a</span>.$&#123;<span class="variable">$a</span>&#125;.<span class="string">"||"</span>.<span class="variable">$hello</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//$$a   =&gt;相当于 $&#123;参数&#125; 而这个参数又是一个$a</span></span></span><br></pre></td></tr></table></figure>
+<p>输出: <code>helloworld||world</code>.</p>
+<p><em>记于一大波实习生面试前夕</em><br><strong><em>[本篇·完]</em></strong></p>
 </span>
       
     </div>
@@ -233,10 +246,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/Attention/" rel="tag">#Attention</a>
-          
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
           
             <a href="/tags/tech/" rel="tag">#tech</a>
           
@@ -247,13 +256,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/31/穿上夏装的北方，更美/" rel="prev">穿上夏装的北方,更美</a>
+              <a href="/2014/08/04/利用Jsonp解决Ajax跨域访问的问题/" rel="prev">利用Jsonp解决Ajax跨域访问的问题</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/08/快速排序即其优化/" rel="next">快速排序即其优化</a>
+              <a href="/2014/04/16/curl访问https配置/" rel="next">curl访问https配置</a>
             
           </div>
         </div>
@@ -362,7 +371,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项："><span class="nav-number">2.</span> <span class="nav-text">注意事项：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7月26日补充："><span class="nav-number">2.1.</span> <span class="nav-text">7月26日补充：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort()_,_asort()_,_ksort()_的用法"><span class="nav-number">1.</span> <span class="nav-text">sort() , asort() , ksort() 的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP中定义一个全局变量的两种方式:"><span class="nav-number">2.</span> <span class="nav-text">PHP中定义一个全局变量的两种方式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用(reference_in_php)"><span class="nav-number">3.</span> <span class="nav-text">引用(reference in php)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#@foo()_和foo()_的区别："><span class="nav-number">4.</span> <span class="nav-text">@foo()  和foo() 的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$$a_的用法"><span class="nav-number">5.</span> <span class="nav-text">$$a 的用法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -418,9 +427,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'helloco';
-      var disqus_identifier = '2015/07/26/搭建Hexo注意事项/';
-      var disqus_title = '搭建Hexo注意事项';
-      var disqus_url = 'http://stayhungry.me/2015/07/26/搭建Hexo注意事项/';
+      var disqus_identifier = '2014/06/15/基础知识学习笔记/';
+      var disqus_title = '基础知识温习笔记';
+      var disqus_url = 'http://stayhungry.me/2014/06/15/基础知识学习笔记/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
