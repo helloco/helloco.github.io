@@ -22,11 +22,11 @@ function escapeSelector (selector) {
   return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
 }
 // by cooco，20150816 文章详情页，右侧默认不展示
-// function displaySidebar () {
-//   setTimeout(function () {
-//     $('.sidebar-toggle').trigger('click');
-//   }, 800);
-// }
+function displaySidebar () {
+  setTimeout(function () {
+    //$('.sidebar-toggle').trigger('click');
+  }, 800);
+}
 
 function isMist () {
   return CONFIG.scheme === 'Mist';
