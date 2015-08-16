@@ -568,7 +568,8 @@
       var $tocContent = $('.post-toc-content');
       if (isDesktop() && CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+          // by cooco，20150816 文章详情页，右侧默认不展示
+          // displaySidebar();
         }
       }
     });
