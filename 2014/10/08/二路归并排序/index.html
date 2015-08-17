@@ -54,7 +54,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: '',
-    sidebar: 'post'
+    sidebar: 'hide'
   };
 </script>
 
@@ -566,7 +566,7 @@
       if (isDesktop() && CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           // by cooco，20150816 文章详情页，右侧默认不展示
-          // displaySidebar();
+           displaySidebar();
         }
       }
     });
