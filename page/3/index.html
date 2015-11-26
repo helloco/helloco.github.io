@@ -180,6 +180,77 @@
           
           
             
+              <a class="post-title-link" href="/2014/10/08/快速排序即其优化/" itemprop="url">
+                快速排序即其优化
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2014-10-08T18:36:01+08:00" content="2014-10-08">
+            2014-10-08
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/10/08/快速排序即其优化/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/08/快速排序即其优化/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="c++实现"><strong><em>c++实现</em></strong></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">void quickSort(sqList *<span class="keyword">L</span>)</span><br><span class="line">&#123;</span><br><span class="line">    qSort(<span class="keyword">L</span>,1,<span class="keyword">L</span>-&gt;length);</span><br><span class="line">&#125;</span><br><span class="line">void qSort(sqList *<span class="keyword">L</span>,int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int pivot;</span><br><span class="line">    <span class="keyword">if</span>(low &lt; high)</span><br><span class="line">&#123;</span><br><span class="line">    pivot = partition(<span class="keyword">L</span>,low,high);</span><br><span class="line">    qSort(<span class="keyword">L</span>,low,pivot-1);</span><br><span class="line">    qSort(<span class="keyword">L</span>,pivot+1,high);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">int partition(sqList *<span class="keyword">L</span>,int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int pivot = <span class="keyword">L</span>-&gt;r[low];</span><br><span class="line">    <span class="keyword">while</span>(low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; <span class="keyword">L</span>-&gt;r[high] &gt;= pivot)</span><br><span class="line">            high--;</span><br><span class="line">        swap(<span class="keyword">L</span>,low,high);</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; <span class="keyword">L</span>-&gt;r[low] =&lt; pivot)</span><br><span class="line">            low++;</span><br><span class="line">        swap(<span class="keyword">L</span>,low,high);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> low</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义顺序表sqList和swap()函数">定义顺序表sqList和swap()函数</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> r[<span class="number">11</span>];</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">&#125;sqList;</span><br><span class="line"></span><br><span class="line">void swap(sqList *L,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	temp = L-&gt;r[low];</span><br><span class="line">	L-&gt;r[low] = L-&gt;r[high];</span><br><span class="line">	L-&gt;r[high] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快排的优化">快排的优化</h3><p><ol><li>优化设定的中轴.即pivot，采用三数取中，九数取中法选取pivot值.</li><br>    <li>优化不必要的交换.L-&gt;r[low]是放在pivot中，中间不必要的交换可以优化.只最后赋值即可.</li><br>    <li>采用多种排序结合法.当每次partition之后的数组长度小于一个数（一般认为是7）时，采用直接插入排序法.与快排结合.</li><br></ol><br><strong><em>[本篇·完]</em></strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2014/10/08/二路归并排序/" itemprop="url">
                 二路归并排序
               </a>
@@ -314,105 +385,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/06/15/基础知识学习笔记/" itemprop="url">
-                基础知识温习笔记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2014-06-15T18:42:12+08:00" content="2014-06-15">
-            2014-06-15
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/06/15/基础知识学习笔记/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/06/15/基础知识学习笔记/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="sort()_,_asort()_,_ksort()_的用法">sort() , asort() , ksort() 的用法</h3><ul>
-<li><strong><em>sort():按值将传入的数组进行排序.例如:</em></strong></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$fruits</span> = <span class="keyword">array</span>(</span><br><span class="line">	<span class="string">"d"</span> =&gt; <span class="string">"lemon"</span>, <span class="string">"a"</span> =&gt; <span class="string">"orange"</span>, <span class="string">"b"</span> =&gt; <span class="string">"banana"</span>, <span class="string">"c"</span> =&gt; <span class="string">"apple"</span></span><br><span class="line">);</span><br><span class="line">sort(<span class="variable">$fruits</span>);</span><br><span class="line">var_dump(<span class="variable">$fruits</span>);</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>sort()函数会按照value值进行排序结果为：<br><code>fruits[0] = apple fruits[1] = banana fruits[2] = lemon fruits[3] = orange</code><br><em>注意：sort函数为数组的元素赋予新的键名。并删除原有键名，并重新排序.</em></p>
-<ul>
-<li><strong><em>asort()函数:跟sort一样也是对数组排序，但是asort保持键名。对上述数组排序后的结果为:</em></strong></li>
-</ul>
-<p><code>fruits[c] = apple fruits[b] = banana fruits[d] = lemon fruits[a] = orange</code></p>
-<ul>
-<li><strong><em>ksort()函数:k（可理解为key的简写），ksort函数按照键名排序，对上述数组排序后的结果为:</em></strong></li>
-</ul>
-<p><code>fruits[a] = orange fruits[b] = banana fruits[c] = apple fruits[d] = lemon</code></p>
-<hr>
-<h3 id="PHP中定义一个全局变量的两种方式:">PHP中定义一个全局变量的两种方式:</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="variable">$foo</span> = <span class="string">"local variable"</span>;</span><br><span class="line">	<span class="keyword">global</span> <span class="variable">$a</span>;</span><br><span class="line">	<span class="variable">$a</span> = <span class="variable">$a</span>*<span class="variable">$a</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'$foo in global scope: '</span> . <span class="variable">$GLOBALS</span>[<span class="string">"foo"</span>] . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'$foo in current scope: '</span> . <span class="variable">$foo</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="variable">$foo</span> = <span class="string">"Example content"</span>;</span><br><span class="line">test();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>以上输出:</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$foo</span> <span class="keyword">in</span> <span class="built_in">global</span> scope: Example content</span><br><span class="line"><span class="variable">$foo</span> <span class="keyword">in</span> current scope: <span class="built_in">local</span> <span class="built_in">variable</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="引用(reference_in_php)">引用(reference in php)</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$c</span> = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cc</span><span class="params">(&amp;<span class="variable">$a</span>)</span></span>&#123;</span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span>-<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cc(<span class="variable">$c</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$c</span>;</span></span><br></pre></td></tr></table></figure>
-<p>此时$c 为99.(类比c语言中的指针)</p>
-<hr>
-<h3 id="@foo()_和foo()_的区别：">@foo()  和foo() 的区别：</h3><p>加上@之后，后面的warning，甚至严重错误都会被屏蔽输出，所以慎用此符号.</p>
-<hr>
-<h3 id="$$a_的用法">$$a 的用法</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">"hello"</span>;</span><br><span class="line"><span class="variable">$$a</span> = <span class="string">"world"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$a</span>.$&#123;<span class="variable">$a</span>&#125;.<span class="string">"||"</span>.<span class="variable">$hello</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//$$a   =&gt;相当于 $&#123;参数&#125; 而这个参数又是一个$a</span></span></span><br></pre></td></tr></table></figure>
-<p>输出: <code>helloworld||world</code>.</p>
-<p><em>记于一大波实习生面试前夕</em><br><strong><em>[本篇·完]</em></strong></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
   </nav>
 
 
@@ -447,7 +424,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -461,7 +438,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

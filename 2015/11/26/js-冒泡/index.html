@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="tech,前端," />
+  <meta name="keywords" content="JS,tech," />
 
 
 
@@ -39,19 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="为什么会有Jsonp？答 : 解决Ajax的跨域访问问题.
-所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用.callback.html123456&amp;lt;script&amp;gt;  function callbackJsonp(result) &amp;#123;  alert(result.b);&amp;#125;&amp;lt;/script&amp;gt;&amp;lt;script type=&quot;text/">
+<meta name="description" content="事情的起因是这样的在一个a标签上,已经绑定了事件A,现在需要绑定事件B,但是我发现,绑定的事件B,在A的前面就执行了,因此B的效果还是被A覆盖了.未达到想要的效果.看到这里你肯定会说,那还不容易,直接写到事件A的前面不就ok了吗,然而如果故事的情节这样发展,哥还写什么博客总结?好了,其实是因为A事件写在了公共的JS模块里,很多地方都调用了,因此不能去轻易地修改她.明确一下遇到的问题:在不修改A的前">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Jsonp解决Ajax跨域访问的问题">
-<meta property="og:url" content="http://stayhungry.me/2014/08/04/利用Jsonp解决Ajax跨域访问的问题/index.html">
+<meta property="og:title" content="js冒泡">
+<meta property="og:url" content="http://stayhungry.me/2015/11/26/js-冒泡/index.html">
 <meta property="og:site_name" content="怀旧的小艾">
-<meta property="og:description" content="为什么会有Jsonp？答 : 解决Ajax的跨域访问问题.
-所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用.callback.html123456&amp;lt;script&amp;gt;  function callbackJsonp(result) &amp;#123;  alert(result.b);&amp;#125;&amp;lt;/script&amp;gt;&amp;lt;script type=&quot;text/">
-<meta property="og:updated_time" content="2015-08-16T11:13:54.966Z">
+<meta property="og:description" content="事情的起因是这样的在一个a标签上,已经绑定了事件A,现在需要绑定事件B,但是我发现,绑定的事件B,在A的前面就执行了,因此B的效果还是被A覆盖了.未达到想要的效果.看到这里你肯定会说,那还不容易,直接写到事件A的前面不就ok了吗,然而如果故事的情节这样发展,哥还写什么博客总结?好了,其实是因为A事件写在了公共的JS模块里,很多地方都调用了,因此不能去轻易地修改她.明确一下遇到的问题:在不修改A的前">
+<meta property="og:updated_time" content="2015-11-26T12:45:52.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Jsonp解决Ajax跨域访问的问题">
-<meta name="twitter:description" content="为什么会有Jsonp？答 : 解决Ajax的跨域访问问题.
-所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用.callback.html123456&amp;lt;script&amp;gt;  function callbackJsonp(result) &amp;#123;  alert(result.b);&amp;#125;&amp;lt;/script&amp;gt;&amp;lt;script type=&quot;text/">
+<meta name="twitter:title" content="js冒泡">
+<meta name="twitter:description" content="事情的起因是这样的在一个a标签上,已经绑定了事件A,现在需要绑定事件B,但是我发现,绑定的事件B,在A的前面就执行了,因此B的效果还是被A覆盖了.未达到想要的效果.看到这里你肯定会说,那还不容易,直接写到事件A的前面不就ok了吗,然而如果故事的情节这样发展,哥还写什么博客总结?好了,其实是因为A事件写在了公共的JS模块里,很多地方都调用了,因此不能去轻易地修改她.明确一下遇到的问题:在不修改A的前">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +58,7 @@
   };
 </script>
 
-    <title> 利用Jsonp解决Ajax跨域访问的问题 // 怀旧的小艾 </title>
+    <title> js冒泡 // 怀旧的小艾 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 <!--[if lte IE 8]>
@@ -182,7 +179,7 @@
           
           
             
-              利用Jsonp解决Ajax跨域访问的问题
+              js冒泡
             
           
         </h1>
@@ -191,8 +188,8 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2014-08-04T17:58:32+08:00" content="2014-08-04">
-            2014-08-04
+          <time itemprop="dateCreated" datetime="2015-11-26T19:47:00+08:00" content="2015-11-26">
+            2015-11-26
           </time>
         </span>
 
@@ -202,8 +199,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/08/04/利用Jsonp解决Ajax跨域访问的问题/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/08/04/利用Jsonp解决Ajax跨域访问的问题/" itemprop="commentsCount"></span>
+            <a href="/2015/11/26/js-冒泡/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/26/js-冒泡/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -217,13 +214,12 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="为什么会有Jsonp？">为什么会有Jsonp？</h3><p>答 : 解决Ajax的跨域访问问题.</p>
-<h3 id="所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用-">所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用.</h3><h5 id="callback-html"><strong><em>callback.html</em></strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="nimrod"></span><br><span class="line">  function callbackJsonp(<span class="literal">result</span>) &#123;</span><br><span class="line">  alert(<span class="literal">result</span>.b);</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"http://localhost/test/web/mytest/a.php?callback=callbackJsonp"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="callback-php"><strong><em>callback.php</em></strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$callback</span> = <span class="variable">$_GET</span>[<span class="string">'callback'</span>];</span><br><span class="line"><span class="variable">$res</span> = <span class="keyword">array</span>(</span><br><span class="line"><span class="string">'a'</span> =&gt; <span class="number">1</span>,</span><br><span class="line"><span class="string">'b'</span> =&gt; <span class="number">2</span>,</span><br><span class="line"><span class="string">'c'</span> =&gt; <span class="number">3</span>,</span><br><span class="line">);</span><br><span class="line"><span class="variable">$res</span> = json_encode(<span class="variable">$res</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$callback</span>.<span class="string">"($res)"</span>;</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>大家可以先把这两段代码运行下,再来看看下面的代码分析.理解更快</em></strong></p>
-<h3 id="下面来分析下Jsonp的实现思路：">下面来分析下Jsonp的实现思路：</h3><ul><br> <li>首先在前端js代码中实现一个回调函数,即:<code>callbackJsonp()</code></li><br> <li>接着是回调函数下面一段js,此js标签去访问后台代码(什么PHP,Java,Python之类),以PHP为例,如上的<code>callback.php.</code></li><br> <li>再说说<strong><em>callback.php</em></strong>这个文件.首先就像接受普通的接口参数一样,接受了<code>callback=callbackJsonp</code>这个参数和回调函数名.<br><br> 而<code>callbackJsonp</code>在前端的js中又是一个js函数,故经过 <code>echo $callback.&quot;($res)&quot;;</code> 这样一拼接之后,返回给前端的数据为：<code>callbackJsonp(result);</code>,<br><br> 接着<code>callbackJsonp</code>恰好是我们定义的一个js函数,因此就作为js函数被执行了.(<code>很像是在服务器端&#39;实例化&#39;l了一个js的对象到前端去执行</code>)</li><br></ul>
-
-<p><strong>这是jsonp 的最简单的实现代码,此博客起到抛砖引玉的作用.还有基于jquery的实现方式,原理类似,大家自行google一下.</strong><br><strong><em>[本篇·完]</em></strong></p>
+        <span itemprop="articleBody"><h3 id="事情的起因是这样的">事情的起因是这样的</h3><p>在一个a标签上,已经绑定了事件A,现在需要绑定事件B,<br>但是我发现,绑定的事件B,在A的前面就执行了,<br>因此B的效果还是被A覆盖了.未达到想要的效果.<br>看到这里你肯定会说,那还不容易,直接写到事件A的前面不就ok了吗,<br>然而如果故事的情节这样发展,哥还写什么博客总结?<br>好了,其实是因为A事件写在了公共的JS模块里,很多地方都调用了,因此不能去轻易地修改她.<br>明确一下遇到的问题:在不修改A的前提下,如何让B在A的后面执行?<br>面对这样的问题,辣么该有多少种解决方案呢?</p>
+<h3 id="先来一段简化的示例代码,再现一下车祸现场">先来一段简化的示例代码,再现一下车祸现场</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tab1"</span> <span class="attribute">data-widget</span>=<span class="value">"com/mobile/widget/tab.js"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"tab2"</span>&gt;</span>职位详情<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"tab3"</span> &gt;</span>公司介绍<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">	$(<span class="string">'.tab1'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'event A'</span>);</span><br><span class="line">	&#125;)</span><br><span class="line">	$(<span class="string">'.tab2'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'event B'</span>);</span><br><span class="line">	&#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Question:当你点击”职位详情”的时候,A,B两个事件哪个先执行呢?">Question:当你点击”职位详情”的时候,A,B两个事件哪个先执行呢?</h3><p><strong>在现在主流的浏览器下面,js的调用栈都是从里到外的,即使先执行B,再执行A.<br>有一个高大上的名字—冒泡.</strong></p>
+<p><strong>如果有更好的solution,欢迎Email我,地址见console栏</strong></p>
+<hr>
+<p><em>以前我一直认为在公司上班调 js是一件何其蛋疼的事情,直到有一天,没有UE了,PM叫我调css…</em><br><strong><em>[本篇·完]</em></strong></p>
 </span>
       
     </div>
@@ -232,9 +228,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/tech/" rel="tag">#tech</a>
+            <a href="/tags/JS/" rel="tag">#JS</a>
           
-            <a href="/tags/前端/" rel="tag">#前端</a>
+            <a href="/tags/tech/" rel="tag">#tech</a>
           
         </div>
       
@@ -243,13 +239,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/10/08/二路归并排序/" rel="prev">二路归并排序</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/06/15/基础知识学习笔记/" rel="next">基础知识温习笔记</a>
+              <a href="/2015/09/13/你问我风景-年轻就是风景!-我的游记之丰宁·坝上篇/" rel="next">你问我风景?年轻就是风景！--我的游记之丰宁·坝上篇</a>
             
           </div>
         </div>
@@ -358,7 +352,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么会有Jsonp？"><span class="nav-number">1.</span> <span class="nav-text">为什么会有Jsonp？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用-"><span class="nav-number">2.</span> <span class="nav-text">所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用.</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#callback-html"><span class="nav-number">2.0.1.</span> <span class="nav-text">callback.html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#callback-php"><span class="nav-number">2.0.2.</span> <span class="nav-text">callback.php</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面来分析下Jsonp的实现思路："><span class="nav-number">3.</span> <span class="nav-text">下面来分析下Jsonp的实现思路：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事情的起因是这样的"><span class="nav-number">1.</span> <span class="nav-text">事情的起因是这样的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先来一段简化的示例代码,再现一下车祸现场"><span class="nav-number">2.</span> <span class="nav-text">先来一段简化的示例代码,再现一下车祸现场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question:当你点击”职位详情”的时候,A,B两个事件哪个先执行呢?"><span class="nav-number">3.</span> <span class="nav-text">Question:当你点击”职位详情”的时候,A,B两个事件哪个先执行呢?</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -415,9 +409,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'helloco';
-      var disqus_identifier = '2014/08/04/利用Jsonp解决Ajax跨域访问的问题/';
-      var disqus_title = '利用Jsonp解决Ajax跨域访问的问题';
-      var disqus_url = 'http://stayhungry.me/2014/08/04/利用Jsonp解决Ajax跨域访问的问题/';
+      var disqus_identifier = '2015/11/26/js-冒泡/';
+      var disqus_title = 'js冒泡';
+      var disqus_url = 'http://stayhungry.me/2015/11/26/js-冒泡/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
