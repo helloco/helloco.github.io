@@ -180,6 +180,109 @@
           
           
             
+              <a class="post-title-link" href="/2015/09/08/Colorful-Your-VIM-Editor/" itemprop="url">
+                Colorful Your VIM Editor--让你的VIM变得多姿多彩
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-09-08T22:38:10+08:00" content="2015-09-08">
+            2015-09-08
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/09/08/Colorful-Your-VIM-Editor/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/08/Colorful-Your-VIM-Editor/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="前言">前言</h2><p>相信你无数次的更换过你的手机主题,下面我们来看看VIM的主题如何修改.</p>
+<p><strong><code>注：以下环境为Centos6.5</code></strong></p>
+<p>首先vim的主题文件格式是以<code>.vim</code>结尾的文件,例如<code>freya.vim</code>等.</p>
+<h2 id="如何启用新主题">如何启用新主题</h2><ul>
+<li><p>执行<code>whereis vim</code>命令,得到你的<strong>VIM</strong>安装位置和配置文件在哪里,</p>
+<p>  例如作者的主题配置文件放在了<code>/usr/share/vim/vim72/colors</code>这里.</p>
+</li>
+<li><p>进入这个目录,可以看到系统的全局主题都放在这里,如图1:<img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-vim-theme.png" alt="vim 主题"></p>
+</li>
+</ul>
+<ul>
+<li><p>然后我们来看怎么启用其中的一个主题,</p>
+<p>  执行<code>vim ~/.vimrc</code>,这个文件就是单个用户的<strong>VIM</strong>配置文件,加入<code>colorscheme freya</code>这行,即可启用<strong>freya.vim</strong> 这个主题.再例如,加入<code>colorscheme desert</code>,即可启用图1中desert.vim这个主题.注意修改之后要保存重启才能生效.</p>
+</li>
+</ul>
+<h2 id="如何添加新的主题">如何添加新的主题</h2><ul>
+<li><p>如果有一天你在网上发现了一个赏心悦目的主题,<code>(例如文件名为beautiful.vim)</code>,只需将这个文件上传到图1对应的主题目录下,然后按照上面的步骤启用该主题即可.</p>
+</li>
+<li><p>注意,图1的<code>/usr/share/vim/vim72/colors</code>这个路径,是全局的位置,即供该机器所有用户共享.</p>
+</li>
+<li><p>针对单个用户,例如公司的开发机有很多同学在用,你不便去操作这个全局的文件夹.辣么单个用户的主题一般是在<code>cd ~/.vim/colors</code>这个目录下,如没有,可自行创建一个.然后启用方法不变.</p>
+<p>  <strong><em>如果想将所有人的主题都修改,辣么需要找到全局的vimrc文件,然后设置对应的主题即可</em></strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="福利">福利</h2><ul>
+<li><a href="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-vim_colors.zip" target="_blank" rel="external">138款<strong>VIM</strong>主题打包</a>  <code>其中有款叫random.vim的主题,每次打开vim随机一种主题,简直酷炫</code></li>
+</ul>
+<h2 id="附录">附录</h2><ul>
+<li><p>freya主题预览如下:<br><img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-freya.png" alt="freya主题预览"></p>
+</li>
+<li><p>desert主题预览如下:<br><img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-desert.png" alt="desert主题预览"></p>
+</li>
+</ul>
+<p>[<em>本篇·完</em>]</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/08/15/一个奇怪的梦/" itemprop="url">
                 一个奇怪的梦
               </a>
@@ -324,89 +427,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/26/搭建Hexo注意事项/" itemprop="url">
-                搭建Hexo注意事项
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-07-26T23:23:47+08:00" content="2015-07-26">
-            2015-07-26
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/26/搭建Hexo注意事项/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/26/搭建Hexo注意事项/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="前言">前言</h3><p> 关于怎么利用<a href="https://pages.github.com/" target="_blank" rel="external">Git Page</a> 和<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>搭建一个博客,网上已经有比较多详细的教程了,在此不再累述,只此推荐教程： <a href="http://xuanwo.org/2015/03/26/hexo-intor/" target="_blank" rel="external">Hexo搭建教程</a> .</p>
-<h3 id="注意事项：">注意事项：</h3><ul>
-<li>第一点要注意的,在 <a href="https://github.com/" target="_blank" rel="external">github.com</a>上创建完 <code>yourname.github.io</code> 之后 ,记得找到仓库右侧的 <code>Settings</code>-&gt;<code>GitHub Pages</code>选项,然后点击 <code>Automatic page generator</code> ,然后一路确定,生成你的Github Page 单页,如图所示：<br><img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-git-page.png" alt="1" title="开启Git Page单页"><br>至此,等待数分钟,你就可以通过<code>yourname.github.io</code>访问到你的<code>GitHub Pages</code>了.</li>
-</ul>
-<ul>
-<li><p>第二点要注意的,上传到github的时候,_config.yml中deploy下方配置github账号的时候,<code>type：</code>和git、<code>repository:</code> 和对应的字段之间记得有空格,如下：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#Deployment</span></span><br><span class="line">deploy<span class="value">:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第三点要注意的当你以上两个易错的细节注意之后,执行<code>hexo deploy</code>的时候,输入git用户名和密码就应该自动给你push了,而不用自己手动去<code>git add</code>,<code>git push</code>等操作.</p>
-</li>
-</ul>
-<ul>
-<li>最后一点是关于独立域名的.<br>在<code>github.com/youname/yourname.github.io</code>这个仓库添加<code>CNAME</code>文件和内容即可实现域名绑定.<br>但是每次本地执行<code>hexo clean</code> <code>hexo generate</code> 最后<code>hexo deploy</code>提交到<code>github</code>的时候你会发现<code>CNAME</code>被本地没有CNAME的版本覆盖了.<br>在此提供一个解决办法,<code>hexo deploy</code>的实现机制是将<code>nodejs</code>工具生成在<code>public</code>目录下的文件copy一份到<code>.deploy_git</code>这里,然后再从<code>.deploy_git</code>这个文件夹<code>push</code>到github,为解决CNAME被覆盖的问题,你要做的是：<br><ol><br><li>在<code>.deploy_git</code>目录里新建<code>CNAME</code>文件（内容是你的域名如<code>stayhungry.me</code>）,并执行git add CNAME.</li><br><li>在执行<code>hexo generate</code>之后,<code>hexo deploy</code>之前,复制1步骤中的<code>CNAME</code>文件到<code>public</code>目录下,紧接着再去hexo </li>deploy的时候就可以将CNAME上传到你的仓库了.<br></ol><br><em>当然这个问题还有一个更彻底的根治方法,就是找到<code>nodejs</code>生成模板文件的那一段代码,然后将<code>CNAME</code>文件也改成每次<code>hexo generate</code>都自动生成.如果你已经发现了,或者有更好的方法,欢迎您将你的研究成果发送到我的邮箱<code>hizhenghang@gmail.com</code>,以供我学习一下,我将不甚感激.当然我也会将您的方法同步到我的Blog,并署上你的大名.</em></li>
-</ul>
-<h4 id="7月26日补充：">7月26日补充：</h4><p>关于<code>CNAME</code>文件更好的解决方案：可以将<code>CNAME</code>文件放在<code>hexo/source</code>文件夹下，这样生成的时候，<code>nodejs</code>就会自动将<code>CNAME</code>文件同步到<code>public</code>目录下，而省去了手动添加的麻烦。<br><strong><em>[本篇·完]</em></strong></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -446,7 +466,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
