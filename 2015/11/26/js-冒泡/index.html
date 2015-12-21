@@ -20,6 +20,8 @@
 
 
 
+  <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet'>
+
 
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
 
@@ -41,7 +43,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="js冒泡">
 <meta property="og:url" content="http://stayhungry.me/2015/11/26/js-冒泡/index.html">
-<meta property="og:site_name" content="怀旧的小艾">
+<meta property="og:site_name" content="Love what you love">
 <meta property="og:description" content="事情的起因是这样的在一个a标签上,已经绑定了事件A,现在需要绑定事件B,但是我发现,绑定的事件B,在A的前面就执行了,因此B的效果还是被A覆盖了.未达到想要的效果.看到这里你肯定会说,那还不容易,直接写到事件A的前面不就ok了吗,然而如果故事的情节这样发展,哥还写什么博客总结?好了,其实是因为A事件写在了公共的JS模块里,很多地方都调用了,因此不能去轻易地修改她.明确一下遇到的问题:在不修改A的前">
 <meta property="og:updated_time" content="2015-11-26T12:45:52.424Z">
 <meta name="twitter:card" content="summary">
@@ -56,9 +58,9 @@
   };
 </script>
 
-    <title> js冒泡 // 怀旧的小艾 </title>
+    <title> js冒泡 // Love what you love </title>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -91,7 +93,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">怀旧的小艾</span>
+      <span class="site-title">Love what you love</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -114,7 +116,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             <i class="menu-item-icon icon-home"></i> <br />
-            首页
+            Home
           </a>
         </li>
       
@@ -122,7 +124,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             <i class="menu-item-icon icon-archives"></i> <br />
-            归档
+            Archives
           </a>
         </li>
       
@@ -130,7 +132,15 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             <i class="menu-item-icon icon-tags"></i> <br />
-            标签
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            Categories
           </a>
         </li>
       
@@ -138,15 +148,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             <i class="menu-item-icon icon-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-recommend">
-          <a href="/recommend" rel="section">
-            <i class="menu-item-icon icon-recommend"></i> <br />
-            推薦
+            About
           </a>
         </li>
       
@@ -185,7 +187,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于
+          Posted on
           <time itemprop="dateCreated" datetime="2015-11-26T19:47:00+08:00" content="2015-11-26">
             2015-11-26
           </time>
@@ -293,10 +295,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+            Table Of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -311,21 +313,21 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">日志</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">分类</span>
-              
+              <span class="site-state-item-name">categories</span>
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
               <span class="site-state-item-count">11</span>
-              <span class="site-state-item-name">标签</span>
+              <span class="site-state-item-name">tags</span>
               </a>
           </div>
 
@@ -378,11 +380,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主题 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank">
     NexT
   </a>
@@ -612,7 +614,7 @@
             effect: "fadeIn"
         });
        // $('.menu-item-recommend').find('i').removeClass('icon-recommend');
-        $('.menu-item-recommend').find('i').addClass('icon-categories');
+       // $('.menu-item-recommend').find('i').addClass('icon-categories');
     });
 </script>
 </body>
