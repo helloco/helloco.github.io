@@ -26,7 +26,7 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
 
 
-    <meta name="description" content="生命有裂缝 阳光才能照进来" />
+    <meta name="description" content="我是一只精灵 我是一个太阳" />
 
 
 
@@ -39,15 +39,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="生命有裂缝 阳光才能照进来">
+<meta name="description" content="我是一只精灵 我是一个太阳">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Love what you love">
 <meta property="og:url" content="http://stayhungry.me/page/5/index.html">
 <meta property="og:site_name" content="Love what you love">
-<meta property="og:description" content="生命有裂缝 阳光才能照进来">
+<meta property="og:description" content="我是一只精灵 我是一个太阳">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Love what you love">
-<meta name="twitter:description" content="生命有裂缝 阳光才能照进来">
+<meta name="twitter:description" content="我是一只精灵 我是一个太阳">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -168,6 +168,90 @@
             <div id="content" class="content">
                 
   <section id="posts" class="posts-expand">
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/04/16/curl访问https配置/" itemprop="url">
+                curl访问https配置
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2014-04-16T13:16:55+08:00" content="2014-04-16">
+            2014-04-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/04/16/curl访问https配置/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/04/16/curl访问https配置/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下">最近在写一个图书的小项目，在调用豆瓣图书ISAN接口的时候，发现curl默认是无法访问https接口。如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line"><span class="variable">$ch</span> = curl_init();</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">// 设置URL和相应的选项</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_URL, <span class="string">"https://api.douban.com/v2/book/isbn/9787121174230"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">// 抓取内容并把它传递给浏览器</span><br><span class="line"><span class="variable">$res</span> = curl_<span class="built_in">exec</span>(<span class="variable">$ch</span>);</span><br><span class="line"><span class="variable">$res</span> = array(json_decode(<span class="variable">$res</span>));</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line"><span class="built_in">print</span>_r(<span class="variable">$res</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;/pre&gt;"</span>;</span><br><span class="line">curl_close(<span class="variable">$ch</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>此时是抓取不到内容的；在初始化(init)curl句柄之后，加上这个设置项</strong></p>
+<p><code>curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);</code><br>即设置之后的代码是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line"><span class="variable">$ch</span> = curl_init();</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>,CURLOPT_SSL_VERIFYPEER, <span class="literal">false</span>);  //设置之后可以访问https</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">// 设置URL和相应的选项</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_URL, <span class="string">"https://api.douban.com/v2/book/isbn/9787121174230"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">// 抓取URL并把它传递给浏览器</span><br><span class="line"><span class="variable">$res</span> = curl_<span class="built_in">exec</span>(<span class="variable">$ch</span>);</span><br><span class="line"><span class="variable">$res</span> = array(json_decode(<span class="variable">$res</span>));</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line"><span class="built_in">print</span>_r(<span class="variable">$res</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;/pre&gt;"</span>;</span><br><span class="line">curl_close(<span class="variable">$ch</span>);</span><br></pre></td></tr></table></figure>
+<p>一个小知识点,mark一下<br><strong><em>[本篇·完]</em></strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -380,11 +464,11 @@
           <img class="site-author-image" src="/images/default_avatar.jpg" alt="怀旧的小艾" itemprop="image"/>
           <p class="site-author-name" itemprop="name">怀旧的小艾</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">生命有裂缝 阳光才能照进来</p>
+        <p class="site-description motion-element" itemprop="description">我是一只精灵 我是一个太阳</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -398,7 +482,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
