@@ -52,7 +52,7 @@ ironman
 张砷镓
 
 
-好玩的">
+打一下赏 好玩的">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About Me">
 <meta property="og:url" content="http://stayhungry.me/about/index.html">
@@ -70,8 +70,8 @@ ironman
 张砷镓
 
 
-好玩的">
-<meta property="og:updated_time" content="2016-01-04T17:57:50.808Z">
+打一下赏 好玩的">
+<meta property="og:updated_time" content="2016-01-16T18:10:17.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About Me">
 <meta name="twitter:description" content="关于我
@@ -87,7 +87,7 @@ ironman
 张砷镓
 
 
-好玩的">
+打一下赏 好玩的">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -228,8 +228,7 @@ ironman
 <li><a href="http://zhangshenjia.com/" target="_blank" rel="external">张砷镓</a></li>
 </ul>
 <hr>
-<p><a href="/recommend/">好玩的</a></p>
-
+<p><a href="javascript:void(0);" class="wxShang" target="_blank" rel="external">打一下赏</a> <a href="/recommend/">好玩的</a></p>
     
   </div>
 
@@ -408,6 +407,16 @@ ironman
 
 <!-- lazyload -->
 <script type="text/javascript" src="/js/lazyload.js"></script>
+<!-- Percy add s-->
+<script type="text/javascript" src="/vendors/layer/layer.js"></script>
+<style type="text/css">
+.layui-layer-demo{
+  background-color:#eee;
+}
+.layui-layer-title{border:none; background-color:#222; color:#fff;}
+
+</style>
+<!-- Percy add e-->
 <script type="text/javascript">
     jQuery(function () {
         jQuery("#posts img").lazyload({
@@ -418,5 +427,28 @@ ironman
        // $('.menu-item-recommend').find('i').addClass('icon-categories');
     });
 </script>
+<!-- Percy add s-->
+<script>
+;!function(){
+
+// 弹窗
+$('.wxShang').on('click', function(){
+    layer.ready(function(){ 
+      //官网欢迎页
+      layer.open({
+        title: '微信扫一扫支持Percy:)',
+        type: 1,
+        skin: 'layui-layer-demo', //样式类名
+        closeBtn: 0, //不显示关闭按钮
+        shift: 2,
+        shadeClose: true, //开启遮罩关闭
+        content: '<div style="" ><img src="http://7xl7zf.com1.z0.glb.clouddn.com/dashang.png"></div>',
+    });
+  });
+});
+
+}();
+</script>
+<!-- Percy add e-->
 </body>
 </html>

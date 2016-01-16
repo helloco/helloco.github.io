@@ -624,6 +624,16 @@
 
 <!-- lazyload -->
 <script type="text/javascript" src="/js/lazyload.js"></script>
+<!-- Percy add s-->
+<script type="text/javascript" src="/vendors/layer/layer.js"></script>
+<style type="text/css">
+.layui-layer-demo{
+  background-color:#eee;
+}
+.layui-layer-title{border:none; background-color:#222; color:#fff;}
+
+</style>
+<!-- Percy add e-->
 <script type="text/javascript">
     jQuery(function () {
         jQuery("#posts img").lazyload({
@@ -634,5 +644,28 @@
        // $('.menu-item-recommend').find('i').addClass('icon-categories');
     });
 </script>
+<!-- Percy add s-->
+<script>
+;!function(){
+
+// 弹窗
+$('.wxShang').on('click', function(){
+    layer.ready(function(){ 
+      //官网欢迎页
+      layer.open({
+        title: '微信扫一扫支持Percy:)',
+        type: 1,
+        skin: 'layui-layer-demo', //样式类名
+        closeBtn: 0, //不显示关闭按钮
+        shift: 2,
+        shadeClose: true, //开启遮罩关闭
+        content: '<div style="" ><img src="http://7xl7zf.com1.z0.glb.clouddn.com/dashang.png"></div>',
+    });
+  });
+});
+
+}();
+</script>
+<!-- Percy add e-->
 </body>
 </html>
