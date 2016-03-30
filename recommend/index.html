@@ -1,6 +1,9 @@
 <!doctype html>
 <html class="theme-next use-motion ">
 <head>
+<style type="text/css">
+.hide{display:none;}
+</style>
     
 
 <meta charset="UTF-8"/>
@@ -346,8 +349,13 @@ Chrome plugin
     </footer>
 
     <div class="back-to-top"></div>
-    <!-- Percy add s 左上角图片-->
+    <!-- Percy add s -->
+    <!--左上角图片-->
     <div style="position:absolute;top:3px;right:0px"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
+    <!--打赏-->
+    <div style="position: fixed;z-index: 19891016;top: 150px;left: 553px;background-color: #000;z-index: 19891018;" id="dashangQr" class="dashangQr hide"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/dashang.png"></div>
+    <!--遮罩-->
+    <div class="mask-new" id="mask-new" style="display:none;z-index:19891016;background-color:#000; opacity:0.3; filter:alpha(opacity=30);top: 0;left: 0;width: 100%;height: 100%;position: fixed;_position: absolute;pointer-events: auto;"></div>
     <!-- Percy add e-->
 </div>
 
@@ -429,6 +437,20 @@ Chrome plugin
 .layui-layer-title{border:none; background-color:#222; color:#fff;}
 
 </style>
+<script type="text/javascript">
+  $('.post-footer').find('button')
+    .click(function(e){
+      e.stopPropagation();
+      $(".dashangQr").removeClass("hide");
+      $('.mask-new').show();
+    });
+    $(document).click(function() {
+        if (!$(".dashangQr").hasClass("hide")) {
+            $(".dashangQr").addClass("hide");
+            $('.mask-new').hide();
+        }
+    });
+</script>
 <!-- Percy add e-->
 <script type="text/javascript">
     jQuery(function () {
@@ -436,8 +458,6 @@ Chrome plugin
             placeholder: "/images/loading.gif",
             effect: "fadeIn"
         });
-       // $('.menu-item-recommend').find('i').removeClass('icon-recommend');
-       // $('.menu-item-recommend').find('i').addClass('icon-categories');
     });
 </script>
 <!-- Percy add s-->
