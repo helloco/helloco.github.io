@@ -546,6 +546,13 @@
             $('.mask-new').hide();
         }
     });
+    $(document).ready(function(){
+        $(window).resize(function() {
+          var window_width = $(window).width();
+          window_width = (window_width/2-120) +'px';
+          document.getElementById('dashangQr').style.left = window_width;
+        });
+    });
 </script>
 <!-- Percy add e-->
 <script type="text/javascript">
