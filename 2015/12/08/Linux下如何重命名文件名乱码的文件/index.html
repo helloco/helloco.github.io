@@ -679,8 +679,13 @@ ls -i 列出当前目录下各文件的节点号,如下2499427就是 test.txt的
             $('.mask-new').hide();
         }
     });
+    // 打赏二维码自适应浏览器
     $(document).ready(function(){
-        $(window).resize(function() {
+          console.log($(window).width());
+          var window_width = $(window).width();
+          window_width = (window_width/2-120) +'px';
+          document.getElementById('dashangQr').style.left = window_width;
+          $(window).resize(function() {
           var window_width = $(window).width();
           window_width = (window_width/2-120) +'px';
           document.getElementById('dashangQr').style.left = window_width;
