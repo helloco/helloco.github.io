@@ -184,7 +184,7 @@
             15 tags in total
         </div>
         <div class="tag-cloud-tags">
-          <a href="/tags/Attention/" style="font-size: 16.5px; color: #9d9d9d">Attention</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/JS/" style="font-size: 12px; color: #ccc">JS</a> <a href="/tags/Linux/" style="font-size: 16.5px; color: #9d9d9d">Linux</a> <a href="/tags/tech/" style="font-size: 30px; color: #111">tech</a> <a href="/tags/we-are-young/" style="font-size: 12px; color: #ccc">we are young</a> <a href="/tags/上地南路8号院/" style="font-size: 12px; color: #ccc">上地南路8号院</a> <a href="/tags/前端/" style="font-size: 16.5px; color: #9d9d9d">前端</a> <a href="/tags/北苑路北/" style="font-size: 12px; color: #ccc">北苑路北</a> <a href="/tags/快乐/" style="font-size: 21px; color: #6f6f6f">快乐</a> <a href="/tags/杭州/" style="font-size: 12px; color: #ccc">杭州</a> <a href="/tags/段子/" style="font-size: 12px; color: #ccc">段子</a> <a href="/tags/生活/" style="font-size: 25.5px; color: #404040">生活</a> <a href="/tags/算法/" style="font-size: 16.5px; color: #9d9d9d">算法</a> <a href="/tags/随记/" style="font-size: 12px; color: #ccc">随记</a>
+          <a href="/tags/Attention/" style="font-size: 16.5px; color: #9d9d9d">Attention</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/JS/" style="font-size: 12px; color: #ccc">JS</a> <a href="/tags/Linux/" style="font-size: 16.5px; color: #9d9d9d">Linux</a> <a href="/tags/tech/" style="font-size: 30px; color: #111">tech</a> <a href="/tags/we-are-young/" style="font-size: 12px; color: #ccc">we are young</a> <a href="/tags/上地南路8号院/" style="font-size: 12px; color: #ccc">上地南路8号院</a> <a href="/tags/前端/" style="font-size: 16.5px; color: #9d9d9d">前端</a> <a href="/tags/北苑路北/" style="font-size: 12px; color: #ccc">北苑路北</a> <a href="/tags/快乐/" style="font-size: 21px; color: #6f6f6f">快乐</a> <a href="/tags/杭州/" style="font-size: 12px; color: #ccc">杭州</a> <a href="/tags/段子/" style="font-size: 12px; color: #ccc">段子</a> <a href="/tags/生活/" style="font-size: 25.5px; color: #404040">生活</a> <a href="/tags/算法/" style="font-size: 16.5px; color: #9d9d9d">算法</a> <a href="/tags/随记/" style="font-size: 16.5px; color: #9d9d9d">随记</a>
         </div>
       </div>
     
@@ -298,7 +298,7 @@
     <div class="back-to-top"></div>
     <!-- Percy add s -->
     <!--左上角图片-->
-    <div style="position:absolute;top:3px;right:0px"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
+    <div style="position:absolute;top:3px;" id="top-float"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
     <!--打赏-->
     <div style="position: fixed;z-index: 19891016;top: 150px;left: 553px;background-color: #000;z-index: 19891018;" id="dashangQr" class="dashangQr hide"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/dashang.png"></div>
     <!--遮罩-->
@@ -405,14 +405,22 @@
     });
     // 自适应
     function self_adaption() {
-          // 自适应宽度
+          // 打赏二维码自适应宽度
           var window_width = $(window).width();
-          window_width = (window_width/2-120) +'px';
-          document.getElementById('dashangQr').style.left = window_width;
+          window_width_formated = (window_width/2-120) +'px';
+          document.getElementById('dashangQr').style.left = window_width_formated;
           // 自适应高度
           var window_height = $(window).height();
           window_height = (window_height/2-135) +'px';
           document.getElementById('dashangQr').style.top = window_height;
+          // 顶部图片自适应宽度
+          if (window_width <= 780) {
+            $('#top-float').css('display','none');
+          }
+          if (window_width > 780) {
+            $('#top-float').css('display','block');
+          }
+          console.log(window_width);
     }
 
 </script>

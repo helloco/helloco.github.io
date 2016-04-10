@@ -33,7 +33,7 @@
 
 
 
-  <meta name="keywords" content="杭州,生活," />
+  <meta name="keywords" content="杭州,生活,随记," />
 
 
 
@@ -56,7 +56,7 @@
 还调侃说甘肃人不喜欢洗澡，因为缺水。
 他说2012年的时候去青海湖玩过（兰州离青海很近）。现在宁波上班，回家依然很费劲:宁波到杭州，杭州到哈尔滨，哈尔滨到黑河。
 黑河隔一条黑龙">
-<meta property="og:updated_time" content="2016-03-31T18:52:35.948Z">
+<meta property="og:updated_time" content="2016-03-31T18:54:10.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大好河山，出去走走">
 <meta name="twitter:description" content="今天碰到一个来自中国边境黑河市的哥们。听了他的故事，他大学时候在甘肃上学，由于没有直达火车，从家去学校要3天:黑河-&amp;gt;哈尔滨，哈尔滨-&amp;gt;北京，北京-&amp;gt;甘肃。
@@ -268,6 +268,8 @@
           
             <a href="/tags/生活/" rel="tag">#生活</a>
           
+            <a href="/tags/随记/" rel="tag">#随记</a>
+          
         </div>
       
 
@@ -435,7 +437,7 @@
     <div class="back-to-top"></div>
     <!-- Percy add s -->
     <!--左上角图片-->
-    <div style="position:absolute;top:3px;right:0px"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
+    <div style="position:absolute;top:3px;" id="top-float"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
     <!--打赏-->
     <div style="position: fixed;z-index: 19891016;top: 150px;left: 553px;background-color: #000;z-index: 19891018;" id="dashangQr" class="dashangQr hide"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/dashang.png"></div>
     <!--遮罩-->
@@ -683,14 +685,22 @@
     });
     // 自适应
     function self_adaption() {
-          // 自适应宽度
+          // 打赏二维码自适应宽度
           var window_width = $(window).width();
-          window_width = (window_width/2-120) +'px';
-          document.getElementById('dashangQr').style.left = window_width;
+          window_width_formated = (window_width/2-120) +'px';
+          document.getElementById('dashangQr').style.left = window_width_formated;
           // 自适应高度
           var window_height = $(window).height();
           window_height = (window_height/2-135) +'px';
           document.getElementById('dashangQr').style.top = window_height;
+          // 顶部图片自适应宽度
+          if (window_width <= 780) {
+            $('#top-float').css('display','none');
+          }
+          if (window_width > 780) {
+            $('#top-float').css('display','block');
+          }
+          console.log(window_width);
     }
 
 </script>

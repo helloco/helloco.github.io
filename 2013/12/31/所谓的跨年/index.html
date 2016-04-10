@@ -424,7 +424,7 @@
     <div class="back-to-top"></div>
     <!-- Percy add s -->
     <!--左上角图片-->
-    <div style="position:absolute;top:3px;right:0px"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
+    <div style="position:absolute;top:3px;" id="top-float"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/iamdoubi.gif"></div>
     <!--打赏-->
     <div style="position: fixed;z-index: 19891016;top: 150px;left: 553px;background-color: #000;z-index: 19891018;" id="dashangQr" class="dashangQr hide"><img src="http://7xl7zf.com1.z0.glb.clouddn.com/dashang.png"></div>
     <!--遮罩-->
@@ -672,14 +672,22 @@
     });
     // 自适应
     function self_adaption() {
-          // 自适应宽度
+          // 打赏二维码自适应宽度
           var window_width = $(window).width();
-          window_width = (window_width/2-120) +'px';
-          document.getElementById('dashangQr').style.left = window_width;
+          window_width_formated = (window_width/2-120) +'px';
+          document.getElementById('dashangQr').style.left = window_width_formated;
           // 自适应高度
           var window_height = $(window).height();
           window_height = (window_height/2-135) +'px';
           document.getElementById('dashangQr').style.top = window_height;
+          // 顶部图片自适应宽度
+          if (window_width <= 780) {
+            $('#top-float').css('display','none');
+          }
+          if (window_width > 780) {
+            $('#top-float').css('display','block');
+          }
+          console.log(window_width);
     }
 
 </script>
