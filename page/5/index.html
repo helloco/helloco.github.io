@@ -183,6 +183,92 @@
           
           
             
+              <a class="post-title-link" href="/2014/10/08/快速排序即其优化/" itemprop="url">
+                快速排序即其优化
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2014-10-08T18:36:01+08:00" content="2014-10-08">
+            2014-10-08
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/10/08/快速排序即其优化/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/08/快速排序即其优化/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="c++实现"><strong><em>c++实现</em></strong></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">void quickSort(sqList *<span class="keyword">L</span>)</span><br><span class="line">&#123;</span><br><span class="line">    qSort(<span class="keyword">L</span>,1,<span class="keyword">L</span>-&gt;length);</span><br><span class="line">&#125;</span><br><span class="line">void qSort(sqList *<span class="keyword">L</span>,int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int pivot;</span><br><span class="line">    <span class="keyword">if</span>(low &lt; high)</span><br><span class="line">&#123;</span><br><span class="line">    pivot = partition(<span class="keyword">L</span>,low,high);</span><br><span class="line">    qSort(<span class="keyword">L</span>,low,pivot-1);</span><br><span class="line">    qSort(<span class="keyword">L</span>,pivot+1,high);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">int partition(sqList *<span class="keyword">L</span>,int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int pivot = <span class="keyword">L</span>-&gt;r[low];</span><br><span class="line">    <span class="keyword">while</span>(low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; <span class="keyword">L</span>-&gt;r[high] &gt;= pivot)</span><br><span class="line">            high--;</span><br><span class="line">        swap(<span class="keyword">L</span>,low,high);</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; <span class="keyword">L</span>-&gt;r[low] =&lt; pivot)</span><br><span class="line">            low++;</span><br><span class="line">        swap(<span class="keyword">L</span>,low,high);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> low</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义顺序表sqList和swap()函数">定义顺序表sqList和swap()函数</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> r[<span class="number">11</span>];</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">&#125;sqList;</span><br><span class="line"></span><br><span class="line">void swap(sqList *L,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	temp = L-&gt;r[low];</span><br><span class="line">	L-&gt;r[low] = L-&gt;r[high];</span><br><span class="line">	L-&gt;r[high] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快排的优化">快排的优化</h3><p><ol><li>优化设定的中轴.即pivot，采用三数取中，九数取中法选取pivot值.</li><br>    <li>优化不必要的交换.L-&gt;r[low]是放在pivot中，中间不必要的交换可以优化.只最后赋值即可.</li><br>    <li>采用多种排序结合法.当每次partition之后的数组长度小于一个数（一般认为是7）时，采用直接插入排序法.与快排结合.</li><br></ol><br><strong><em>[本篇·完]</em></strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+    <center><button style="border: 0;outline: 0;border-radius: 100%;
+    padding: 0;margin: 0;">
+    <span style="display: inline-block;width: 50px;height: 50px;border-radius: 100%;line-height: 58px;color: #fff;font: 400 25px/50px 'microsoft yahei';background: #FEC22C;" id="rewardBtn">赏</span>
+    </button></center>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2014/10/08/二路归并排序/" itemprop="url">
                 二路归并排序
               </a>
@@ -352,96 +438,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/08/04/利用Jsonp解决Ajax跨域访问的问题/" itemprop="url">
-                利用Jsonp解决Ajax跨域访问的问题
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2014-08-04T17:58:32+08:00" content="2014-08-04">
-            2014-08-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/08/04/利用Jsonp解决Ajax跨域访问的问题/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/08/04/利用Jsonp解决Ajax跨域访问的问题/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="为什么会有Jsonp？">为什么会有Jsonp？</h3><p>答 : 解决Ajax的跨域访问问题.</p>
-<h3 id="所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用-">所以首先利用一个简单的栗子,说明Jsonp如何使用,再去讲述为何这样使用.</h3><h5 id="callback-html"><strong><em>callback.html</em></strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="nimrod"></span><br><span class="line">  function callbackJsonp(<span class="literal">result</span>) &#123;</span><br><span class="line">  alert(<span class="literal">result</span>.b);</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"http://localhost/test/web/mytest/a.php?callback=callbackJsonp"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="callback-php"><strong><em>callback.php</em></strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$callback</span> = <span class="variable">$_GET</span>[<span class="string">'callback'</span>];</span><br><span class="line"><span class="variable">$res</span> = <span class="keyword">array</span>(</span><br><span class="line"><span class="string">'a'</span> =&gt; <span class="number">1</span>,</span><br><span class="line"><span class="string">'b'</span> =&gt; <span class="number">2</span>,</span><br><span class="line"><span class="string">'c'</span> =&gt; <span class="number">3</span>,</span><br><span class="line">);</span><br><span class="line"><span class="variable">$res</span> = json_encode(<span class="variable">$res</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$callback</span>.<span class="string">"($res)"</span>;</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>大家可以先把这两段代码运行下,再来看看下面的代码分析.理解更快</em></strong></p>
-<h3 id="下面来分析下Jsonp的实现思路：">下面来分析下Jsonp的实现思路：</h3><ul><br> <li>首先在前端js代码中实现一个回调函数,即:<code>callbackJsonp()</code></li><br> <li>接着是回调函数下面一段js,此js标签去访问后台代码(什么PHP,Java,Python之类),以PHP为例,如上的<code>callback.php.</code></li><br> <li>再说说<strong><em>callback.php</em></strong>这个文件.首先就像接受普通的接口参数一样,接受了<code>callback=callbackJsonp</code>这个参数和回调函数名.<br><br> 而<code>callbackJsonp</code>在前端的js中又是一个js函数,故经过 <code>echo $callback.&quot;($res)&quot;;</code> 这样一拼接之后,返回给前端的数据为：<code>callbackJsonp(result);</code>,<br><br> 接着<code>callbackJsonp</code>恰好是我们定义的一个js函数,因此就作为js函数被执行了.(<code>很像是在服务器端&#39;实例化&#39;l了一个js的对象到前端去执行</code>)</li><br></ul>
-
-<p><strong>这是jsonp 的最简单的实现代码,此博客起到抛砖引玉的作用.还有基于jquery的实现方式,原理类似,大家自行google一下.</strong><br><strong><em>[本篇·完]</em></strong></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-    <center><button style="border: 0;outline: 0;border-radius: 100%;
-    padding: 0;margin: 0;">
-    <span style="display: inline-block;width: 50px;height: 50px;border-radius: 100%;line-height: 58px;color: #fff;font: 400 25px/50px 'microsoft yahei';background: #FEC22C;" id="rewardBtn">赏</span>
-    </button></center>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -481,7 +477,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -495,7 +491,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

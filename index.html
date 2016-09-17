@@ -183,6 +183,156 @@
           
           
             
+              <a class="post-title-link" href="/2016/09/17/shadowsockets服务搭建教程/" itemprop="url">
+                shadowsockets服务搭建教程
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2016-09-17T17:14:37+08:00" content="2016-09-17">
+            2016-09-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2016/09/17/shadowsockets服务搭建教程/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/shadowsockets服务搭建教程/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>晚饭后程序员percy坐在人体力学座椅上,熟练的输入<code>google.com/ncr</code>准备查点资料,轻点回车,发现</p>
+<center><b><code>Proxy error!</code><b></b></b></center>
+
+
+<p>买的vpn又挂了,这是何等卧槽!</p>
+<p>嗯,自己动手丰衣足食,于是精挑细选之后,percy选择了送十美刀优惠券的digitalocean:</p>
+<p><a href="https://www.digitalocean.com/?refcode=2fa5db664d0f" target="_blank" rel="external">https://www.digitalocean.com/?refcode=2fa5db664d0f</a>,使用这个链接注册可以送10美元代金券,无门槛使用~</p>
+<h2 id="搭建shadowsockets服务步骤">搭建shadowsockets服务步骤</h2><ul>
+<li><p>注册完成填写好信用卡等信息之后,进入<a href="https://cloud.digitalocean.com/droplets" target="_blank" rel="external">https://cloud.digitalocean.com/droplets</a>,点击右上角<code>Create Droplet</code>按钮,</p>
+<ul>
+<li><code>Choose an image</code>菜单选择Centos 6.8*64 .[为避免你在安装的过程中出现不可描述的问题,此处以Centos 6.8*64为例]</li>
+<li><p><code>Choose a size</code>选择<code>$5/mo</code>即5美元每月的套餐,土豪随意.</p>
+</li>
+<li><p>其他没提及的地方保持默认即可.</p>
+</li>
+<li><p>滚动到页面到最下面,点击<em>Create</em>    </p>
+</li>
+<li>此时你vps已经购买好了,正常情况等待10秒钟左右就会生效,digitalocean会给你发一封邮件,邮件里包含了IP,登录vps的用户名,以及初始密码,</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>根据邮件中提供的用户名密码ssh登录vps.并更改密码,[digitalocean强制要求].</li>
+<li><p>依次执行以下命令安装shadowsockets</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="operator"><span class="keyword">install</span> epel-<span class="keyword">release</span></span><br><span class="line">yum <span class="keyword">update</span></span><br><span class="line">yum <span class="keyword">install</span> python-setuptools m2crypto supervisor</span><br><span class="line">easy_install pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意:如果在最后一步安装<code>pip install shadowsocks</code>安装shadowsocks的时候提示Python的版本过低,则需升级Python版本,并用指定的pip包去安装shadowsocks即可,例如我升级之后的安装命令为:<code>/usr/local/bin/pip2.7 install shadowsocks</code>,这表示我用的是2.7版本的pip包安装shadowsocks.</li>
+</ul>
+</li>
+<li><p>至此shadowsockets已经安装成功,现在需要配置shadowsockets.</p>
+<ul>
+<li><p>执行命令新建文件:    <code>vim /etc/shadowsocks.json</code>,并将以下配置粘贴到<code>/etc/shadowsocks.json</code>中</p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">server</span>":<span class="value"><span class="string">"0.0.0.0"</span></span>,</span><br><span class="line">    "<span class="attribute">server_port</span>":<span class="value"><span class="number">8388</span></span>,</span><br><span class="line">    "<span class="attribute">local_port</span>":<span class="value"><span class="number">1080</span></span>,</span><br><span class="line">    "<span class="attribute">password</span>":<span class="value"><span class="string">"mypassword"</span></span>,</span><br><span class="line">    "<span class="attribute">timeout</span>":<span class="value"><span class="number">600</span></span>,</span><br><span class="line">    "<span class="attribute">method</span>":<span class="value"><span class="string">"aes-256-cfb"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>server_port和password可以修改成自定义的,并保存文件</p>
+</li>
+<li><p>执行命令<code>vim /etc/supervisord.conf</code>编辑此配置文件,在文件的末尾加入以下代码</p>
+  <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[program:shadowsocks]</span></span><br><span class="line"><span class="setting">command=<span class="value">ssserver -c /etc/shadowsocks.json</span></span></span><br><span class="line"><span class="setting">autostart=<span class="value"><span class="keyword">true</span></span></span></span><br><span class="line"><span class="setting">autorestart=<span class="value"><span class="keyword">true</span></span></span></span><br><span class="line"><span class="setting">user=<span class="value">root</span></span></span><br><span class="line"><span class="setting">log_stderr=<span class="value"><span class="keyword">true</span></span></span></span><br><span class="line"><span class="setting">logfile=<span class="value">/var/log/shadowsocks.log</span></span></span><br></pre></td></tr></table></figure>
+<p>  保存该文件并退出</p>
+</li>
+</ul>
+</li>
+<li><p>执行命令编辑文件<code>vim /etc/rc.local</code>,</p>
+<p>  <img src="http://7xl7zf.com1.z0.glb.clouddn.com/clipboard.png" alt="de"><br>  按照上图红色方框位置添加<code>service supervisord start</code>这一行,保存文件</p>
+</li>
+<li><p>执行<code>rebooot</code>命令,重启vps.重启成功之后执行<code>service supervisord status</code>看看服务是不是在running的状态,如果是恭喜你大功告成了</p>
+</li>
+</ul>
+<hr>
+<h2 id="客户端推荐">客户端推荐</h2><p>至此你的vps上已经安装了shadowsocks,下面是几个平台的客户端下载推荐:</p>
+<ul>
+<li><p>PC客户端:</p>
+<p>   <a href="https://sourceforge.net/projects/shadowsocksgui/files/dist/" target="_blank" rel="external">https://sourceforge.net/projects/shadowsocksgui/files/dist/</a>.WIN8,WIN10 用户下载<code>Shadowsocks-win-dotnet4.0-xxx</code>的版本</p>
+</li>
+<li><p>IOS客户端是付费的.</p>
+<ul>
+<li><p>percy用的是<code>shadowrockets</code>,售价6RMB. <a href="https://itunes.apple.com/us/app/shadowrocket/id932747118?mt=8" target="_blank" rel="external">shadowrocket in itunes</a></p>
+</li>
+<li><p>还有一款app叫<code>shadowsocks</code>,售价12RMB,<a href="https://itunes.apple.com/cn/app/shadowsocks/id1124747626?l=en&amp;mt=8" target="_blank" rel="external">shadowsocks in itunes</a></p>
+</li>
+<li><p>这两款都有iPad和iPhone版本.</p>
+</li>
+</ul>
+</li>
+<li>Android机器,<a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">shadowsocks for Android</a></li>
+</ul>
+<p>本文介绍的是在digitalocean平台上的vps安装shadowsocks的过程,其它靠谱vps提供商如:大名鼎鼎的Linode,便宜好用的搬瓦工,大家视自己的实际情况选择即可.</p>
+<p><strong><em>[本篇·完]</em></strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+    <center><button style="border: 0;outline: 0;border-radius: 100%;
+    padding: 0;margin: 0;">
+    <span style="display: inline-block;width: 50px;height: 50px;border-radius: 100%;line-height: 58px;color: #fff;font: 400 25px/50px 'microsoft yahei';background: #FEC22C;" id="rewardBtn">赏</span>
+    </button></center>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/01/how-to-make-a-Responsive-Web-Design-Page/" itemprop="url">
                 how to make a Responsive Web Design Page
               </a>
@@ -351,115 +501,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/01/01/hi-2016/" itemprop="url">
-                写在毕业半年的时候
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2016-01-01T10:00:37+08:00" content="2016-01-01">
-            2016-01-01
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Monthly-XiaBiBi/" itemprop="url" rel="index"><span itemprop="name">Monthly XiaBiBi</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2016/01/01/hi-2016/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/01/hi-2016/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>几周前看到豆瓣上一篇文章,表达的意思一如其标题:”多年以后,我是否必须承认自己的平凡？”</p>
-<p>当然多年前教官就这样训我们:”你们每个人都是平凡人,只是自己自认为很不凡”.</p>
-<p>Oh no,生活是充满希望的,我可是一个正能量爆表的精灵.</p>
-<h2 id="抓住大学的尾巴-">抓住大学的尾巴.</h2><p><strong>1月-6月 来去自如,潇洒惬意来去如风的大四下学期</strong><br>2015年上半年,是近几年来过得最潇洒的半年,一来是大四没有课程的压力,再者由于工作也已经签了,然后毕业设计也是小case,所以在学校基本上是过着没有任何压力的生活.</p>
-<p>阳光明媚的午后,我会踩着我的690去八分山踏青,偶尔也去环东湖拉练.春夏的东湖真的很美.</p>
-<p>晚上也经常去南湖桥和长江大桥夜骑.<br>只是桥下户部巷那家经常光顾的肠粉店关门了,有点遗憾.</p>
-<p>这年我考了驾照,在驾校认识了很多朋友.不同专业的,不同行业的,不同年龄的朋友.<br>嗨,很高兴认识你们.</p>
-<p>这年跟着班上的同学去了江夏的某个庄园露营.<br>我们划着竹筏打水仗,这种运动最能唤起大家的童真,每个人都瞬间变小了十岁,笑的无比天真烂漫.</p>
-<p>我们自带了单车,肆意的狂奔在狭小的土路上.<br> 我们自备了烧烤工具和食材,而且烤出来的味道还相当不错.</p>
-<p>晚上我们把帐篷围城一圈,有互相做足底的（其实就是光着脚互相在对方背上乱踩）,<br>有打扑克牌的,一对王炸了四个二玩得不亦乐乎.</p>
-<p>当然我们自带了音响和麦克风和iPad,在那片草原上办起了open KTV,大家纵情高歌.想想都难忘.</p>
-<p>这年我带着小伙伴去了湖南,岳麓山风景如画.</p>
-<p>这年我那2货舍友一个人旅行去了衡山,邂逅不断.</p>
-<p>就这样一直到六月份,毕业照,各种趴,聚餐.终于,还是要散场了.</p>
-<h2 id="稍微单调一点的上班生活">稍微单调一点的上班生活</h2><p>送走了3个舍友和若干基友,我是最后离开的.</p>
-<p>由于在京的小伙伴已经帮忙打理好房子的事情,所以我来京之后,一切变得简单了很多,在此十分真诚的感谢有爱的小伙伴.</p>
-<p>兴趣爱好多的人,从来不会太无聊,羽毛球,篮球,爬山,泡图书馆,自驾,聚会趴,周末的时间几乎没有虚度过.遗憾是对技术方面的时间投入没有达到我的初衷.</p>
-<p>周末大学同学围在一起聚餐,我跟大家开玩笑,多年以后,我们有了自己的妻子和孩子,到时候我们希望还能带着她们来聚餐,希望他们加入我们的生活.</p>
-<p>其实上班没那么可怕,尤其是遇上了一群和同学一样可爱逗比的同事.</p>
-<p>地铁上和浩浩吹吹牛,聊聊车,过过嘴隐.<br>吃饭的时候听老司机磊哥给我们普及各种道路驾驶经验.<br>一切都很棒.<br>感谢阳光开朗的同事,赶场子下馆子的时候记得叫上我,感谢一个个充满正能量和榜样作用的精灵.</p>
-<p>20多岁的人,确实应该是精灵,是太阳.给周围人带来光和热,带来正能量和希望.</p>
-<p>你好,阳光<br>你好,2016！</p>
-<hr>
-<p>2016年1月1日创作于京沪高铁G107<br>Post on CRH. January 1st,2016</p>
-<p>查看<a href="/2013/12/31/所谓的跨年/">2013年跨年时的创作</a></p>
-<p><strong><em>[本篇·完]</em></strong></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-    <center><button style="border: 0;outline: 0;border-radius: 100%;
-    padding: 0;margin: 0;">
-    <span style="display: inline-block;width: 50px;height: 50px;border-radius: 100%;line-height: 58px;color: #fff;font: 400 25px/50px 'microsoft yahei';background: #FEC22C;" id="rewardBtn">赏</span>
-    </button></center>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -499,7 +540,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -513,7 +554,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
