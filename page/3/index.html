@@ -183,6 +183,107 @@
           
           
             
+              <a class="post-title-link" href="/2015/12/08/Linux下如何重命名文件名乱码的文件/" itemprop="url">
+                Linux下如何重命名文件名乱码的文件
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-12-08T11:14:47+08:00" content="2015-12-08">
+            2015-12-08
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/12/08/Linux下如何重命名文件名乱码的文件/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/08/Linux下如何重命名文件名乱码的文件/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p><em>标题像绕口令吗?跟着念一遍,清新口气~哈哈</em></p>
+<h3 id="Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法-">Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法.</h3><ul>
+<li>ls -i 列出当前目录下各文件的节点号,如下2499427就是 test.txt的节点号.</li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zhenghang@bw-kvm-crop zhuanti]$ ls -i</span><br><span class="line"><span class="number">3413951 201</span>6zpj      <span class="number">2499427</span> test.txt  <span class="number">3544725</span> __MACOSX      <span class="number">4623653</span> sqztc  <span class="number">8290088</span> zpjnh</span><br><span class="line"><span class="number">2495825 201</span>6zpj.zip  <span class="number">2548405</span> cjzpj    <span class="number">2528400</span> one_click.js  <span class="number">6325513</span> xjzpj  <span class="number">2528401</span> zuijiaguzhu.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>执行 find . -inum 节点号 -exec mv {} 新名称 \;  例如下面的find . -inum 2499427 -exec mv {} namechange.txt \;</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zhenghang@bw-kvm-crop zhuanti]$ find . -inum <span class="number">2499427</span> -exec mv &#123;&#125; namechange.txt \<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再ls -i一下，发现相同节点的名称已经修改成功 </p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zhenghang@bw-kvm-crop zhuanti]$ ls -i</span><br><span class="line"><span class="number">3413951 201</span>6zpj      <span class="number">2548405</span> cjzpj     <span class="number">2499427</span> namechange.txt  <span class="number">4623653</span> sqztc  <span class="number">8290088</span> zpjnh</span><br><span class="line"><span class="number">2495825 201</span>6zpj.zip  <span class="number">3544725</span> __MACOSX  <span class="number">2528400</span> one_click.js    <span class="number">6325513</span> xjzpj  <span class="number">2528401</span> zuijiaguzhu.js</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="另外删除文件名乱码的文件,也可以通过此方法实现">另外删除文件名乱码的文件,也可以通过此方法实现</h3><ul>
+<li>执行 find . -inum 节点号 -exec rm {} -rf \; 例如本例中 ：find . -inum 2499427 -exec rm {} -rf \;  即可删除namechange.txt</li>
+</ul>
+<hr>
+<h3 id="后记">后记</h3><p>今天北京再次严重雾霾污染,但是戴着公司发的3M口罩来上班,不舒适感似乎小了很多(可能有点心里作用).珍爱生命,强烈建议北京的小伙伴带口罩上班,作用还是很明显的.<br><strong><em>[本篇·完]</em></strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+    <center><button style="border: 0;outline: 0;border-radius: 100%;
+    padding: 0;margin: 0;">
+    <span style="display: inline-block;width: 50px;height: 50px;border-radius: 100%;line-height: 58px;color: #fff;font: 400 25px/50px 'microsoft yahei';background: #FEC22C;" id="rewardBtn">赏</span>
+    </button></center>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/11/26/js-冒泡/" itemprop="url">
                 js冒泡
               </a>
@@ -348,124 +449,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/08/Colorful-Your-VIM-Editor/" itemprop="url">
-                Colorful Your VIM Editor--让你的VIM变得多姿多彩
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-09-08T22:38:10+08:00" content="2015-09-08">
-            2015-09-08
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/09/08/Colorful-Your-VIM-Editor/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/08/Colorful-Your-VIM-Editor/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="前言">前言</h2><p>相信你无数次的更换过你的手机主题,下面我们来看看VIM的主题如何修改.</p>
-<p><strong><code>注：以下环境为Centos6.5</code></strong></p>
-<p>首先vim的主题文件格式是以<code>.vim</code>结尾的文件,例如<code>freya.vim</code>等.</p>
-<h2 id="如何启用新主题">如何启用新主题</h2><ul>
-<li><p>执行<code>whereis vim</code>命令,得到你的<strong>VIM</strong>安装位置和配置文件在哪里,</p>
-<p>  例如作者的主题配置文件放在了<code>/usr/share/vim/vim72/colors</code>这里.</p>
-</li>
-<li><p>进入这个目录,可以看到系统的全局主题都放在这里,如图1:<img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-vim-theme.png" alt="vim 主题"></p>
-</li>
-</ul>
-<ul>
-<li><p>然后我们来看怎么启用其中的一个主题,</p>
-<p>  执行<code>vim ~/.vimrc</code>,这个文件就是单个用户的<strong>VIM</strong>配置文件,加入<code>colorscheme freya</code>这行,即可启用<strong>freya.vim</strong> 这个主题.再例如,加入<code>colorscheme desert</code>,即可启用图1中desert.vim这个主题.注意修改之后要保存重启才能生效.</p>
-</li>
-</ul>
-<h2 id="如何添加新的主题">如何添加新的主题</h2><ul>
-<li><p>如果有一天你在网上发现了一个赏心悦目的主题,<code>(例如文件名为beautiful.vim)</code>,只需将这个文件上传到图1对应的主题目录下,然后按照上面的步骤启用该主题即可.</p>
-</li>
-<li><p>注意,图1的<code>/usr/share/vim/vim72/colors</code>这个路径,是全局的位置,即供该机器所有用户共享.</p>
-</li>
-<li><p>针对单个用户,例如公司的开发机有很多同学在用,你不便去操作这个全局的文件夹.辣么单个用户的主题一般是在<code>cd ~/.vim/colors</code>这个目录下,如没有,可自行创建一个.然后启用方法不变.</p>
-<p>  <strong><em>如果想将所有人的主题都修改,辣么需要找到全局的vimrc文件,然后设置对应的主题即可</em></strong></p>
-</li>
-</ul>
-<hr>
-<h2 id="福利">福利</h2><ul>
-<li><a href="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-vim_colors.zip" target="_blank" rel="external">138款<strong>VIM</strong>主题打包</a>  <code>其中有款叫random.vim的主题,每次打开vim随机一种主题,简直酷炫</code></li>
-</ul>
-<h2 id="附录">附录</h2><ul>
-<li><p>freya主题预览如下:<br><img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-freya.png" alt="freya主题预览"></p>
-</li>
-<li><p>desert主题预览如下:<br><img src="http://7xl7zf.com1.z0.glb.clouddn.com/zhenghang-desert.png" alt="desert主题预览"></p>
-</li>
-</ul>
-<p>[<em>本篇·完</em>]</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-    <center><button style="border: 0;outline: 0;border-radius: 100%;
-    padding: 0;margin: 0;">
-    <span style="display: inline-block;width: 50px;height: 50px;border-radius: 100%;line-height: 58px;color: #fff;font: 400 25px/50px 'microsoft yahei';background: #FEC22C;" id="rewardBtn">赏</span>
-    </button></center>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -505,7 +488,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -519,7 +502,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
