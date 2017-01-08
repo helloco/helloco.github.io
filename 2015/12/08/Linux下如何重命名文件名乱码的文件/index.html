@@ -1,0 +1,654 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,tech," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="标题像绕口令吗?跟着念一遍,清新口气~哈哈
+Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法.
+ls -i 列出当前目录下各文件的节点号,如下2499427就是 test.txt的节点号.
+
+123[zhenghang@bw-kvm-crop zhuanti]$ ls -i3413951 2016zpj      2499427 test.txt  3544725 _">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下如何重命名文件名乱码的文件">
+<meta property="og:url" content="http://stayhungry.me/2015/12/08/Linux下如何重命名文件名乱码的文件/index.html">
+<meta property="og:site_name" content="Percy">
+<meta property="og:description" content="标题像绕口令吗?跟着念一遍,清新口气~哈哈
+Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法.
+ls -i 列出当前目录下各文件的节点号,如下2499427就是 test.txt的节点号.
+
+123[zhenghang@bw-kvm-crop zhuanti]$ ls -i3413951 2016zpj      2499427 test.txt  3544725 _">
+<meta property="og:updated_time" content="2017-01-08T10:58:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux下如何重命名文件名乱码的文件">
+<meta name="twitter:description" content="标题像绕口令吗?跟着念一遍,清新口气~哈哈
+Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法.
+ls -i 列出当前目录下各文件的节点号,如下2499427就是 test.txt的节点号.
+
+123[zhenghang@bw-kvm-crop zhuanti]$ ls -i3413951 2016zpj      2499427 test.txt  3544725 _">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"remove"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://stayhungry.me/2015/12/08/Linux下如何重命名文件名乱码的文件/"/>
+
+
+
+
+
+  <title> Linux下如何重命名文件名乱码的文件 | Percy </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Percy</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">Stay Hungry Stay Foolish</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2015/12/08/Linux下如何重命名文件名乱码的文件/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Percy">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Percy">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Percy" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux下如何重命名文件名乱码的文件
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-08T11:14:47+08:00">
+                2015-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/12/08/Linux下如何重命名文件名乱码的文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/08/Linux下如何重命名文件名乱码的文件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>标题像绕口令吗?跟着念一遍,清新口气~哈哈</em></p>
+<h3 id="Linux下面-有时候发现文件名是乱码的-无法更改或者删除该文件-下面提供方法"><a href="#Linux下面-有时候发现文件名是乱码的-无法更改或者删除该文件-下面提供方法" class="headerlink" title="Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法."></a>Linux下面,有时候发现文件名是乱码的,无法更改或者删除该文件,下面提供方法.</h3><ul>
+<li>ls -i 列出当前目录下各文件的节点号,如下2499427就是 test.txt的节点号.</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[zhenghang@bw-kvm-crop zhuanti]$ ls -i</div><div class="line"><span class="number">3413951</span> <span class="number">2016</span>zpj      <span class="number">2499427</span> test.txt  <span class="number">3544725</span> __MACOSX      <span class="number">4623653</span> sqztc  <span class="number">8290088</span> zpjnh</div><div class="line"><span class="number">2495825</span> <span class="number">2016</span>zpj.zip  <span class="number">2548405</span> cjzpj    <span class="number">2528400</span> one_click.js  <span class="number">6325513</span> xjzpj  <span class="number">2528401</span> zuijiaguzhu.js</div></pre></td></tr></table></figure>
+<ul>
+<li><p>执行 find . -inum 节点号 -exec mv {} 新名称 \;  例如下面的find . -inum 2499427 -exec mv {} namechange.txt \;</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[zhenghang<span class="variable">@bw</span>-kvm-crop zhuanti]<span class="variable">$ </span>find . -inum <span class="number">2499427</span> -exec mv &#123;&#125; namechange.txt \;</div></pre></td></tr></table></figure>
+</li>
+<li><p>再ls -i一下，发现相同节点的名称已经修改成功 </p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[zhenghang@bw-kvm-crop zhuanti]$ ls -i</div><div class="line"><span class="number">3413951</span> <span class="number">2016</span>zpj      <span class="number">2548405</span> cjzpj     <span class="number">2499427</span> namechange.txt  <span class="number">4623653</span> sqztc  <span class="number">8290088</span> zpjnh</div><div class="line"><span class="number">2495825</span> <span class="number">2016</span>zpj.zip  <span class="number">3544725</span> __MACOSX  <span class="number">2528400</span> one_click.js    <span class="number">6325513</span> xjzpj  <span class="number">2528401</span> zuijiaguzhu.js</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="另外删除文件名乱码的文件-也可以通过此方法实现"><a href="#另外删除文件名乱码的文件-也可以通过此方法实现" class="headerlink" title="另外删除文件名乱码的文件,也可以通过此方法实现"></a>另外删除文件名乱码的文件,也可以通过此方法实现</h3><ul>
+<li>执行 find . -inum 节点号 -exec rm {} -rf \; 例如本例中 ：find . -inum 2499427 -exec rm {} -rf \;  即可删除namechange.txt</li>
+</ul>
+<hr>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>今天北京再次严重雾霾污染,但是戴着公司发的3M口罩来上班,不舒适感似乎小了很多(可能有点心里作用).珍爱生命,强烈建议北京的小伙伴带口罩上班,作用还是很明显的.<br><strong><em>[本篇·完]</em></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/tech/" rel="tag"># tech</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/26/js-冒泡/" rel="next" title="js冒泡">
+                <i class="fa fa-chevron-left"></i> js冒泡
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/22/how-to-higher-your-bigger-quickly/" rel="prev" title="程序猿快速提升逼格指南">
+                程序猿快速提升逼格指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/12/08/Linux下如何重命名文件名乱码的文件/"
+     data-title="Linux下如何重命名文件名乱码的文件"
+     data-content=""
+     data-url="http://stayhungry.me/2015/12/08/Linux下如何重命名文件名乱码的文件/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/08/Linux下如何重命名文件名乱码的文件/"
+           data-title="Linux下如何重命名文件名乱码的文件" data-url="http://stayhungry.me/2015/12/08/Linux下如何重命名文件名乱码的文件/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Percy</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"percy2016"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
