@@ -193,26 +193,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -229,6 +209,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -251,6 +241,182 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2014/06/15/基础知识学习笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Percy">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Percy">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Percy" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/06/15/基础知识学习笔记/" itemprop="url">
+                  基础知识温习笔记
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-06-15T18:42:12+08:00">
+                2014-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/06/15/基础知识学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/15/基础知识学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="sort-asort-ksort-的用法"><a href="#sort-asort-ksort-的用法" class="headerlink" title="sort() , asort() , ksort() 的用法"></a>sort() , asort() , ksort() 的用法</h3><ul>
+<li><strong><em>sort():按值将传入的数组进行排序.例如:</em></strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">$fruits = <span class="keyword">array</span>(</div><div class="line">	<span class="string">"d"</span> =&gt; <span class="string">"lemon"</span>, <span class="string">"a"</span> =&gt; <span class="string">"orange"</span>, <span class="string">"b"</span> =&gt; <span class="string">"banana"</span>, <span class="string">"c"</span> =&gt; <span class="string">"apple"</span></div><div class="line">);</div><div class="line">sort($fruits);</div><div class="line">var_dump($fruits);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>sort()函数会按照value值进行排序结果为：<br><code>fruits[0] = apple fruits[1] = banana fruits[2] = lemon fruits[3] = orange</code><br><em>注意：sort函数为数组的元素赋予新的键名。并删除原有键名，并重新排序.</em></p>
+<ul>
+<li><strong><em>asort()函数:跟sort一样也是对数组排序，但是asort保持键名。对上述数组排序后的结果为:</em></strong></li>
+</ul>
+<p><code>fruits[c] = apple fruits[b] = banana fruits[d] = lemon fruits[a] = orange</code></p>
+<ul>
+<li><strong><em>ksort()函数:k（可理解为key的简写），ksort函数按照键名排序，对上述数组排序后的结果为:</em></strong></li>
+</ul>
+<p><code>fruits[a] = orange fruits[b] = banana fruits[c] = apple fruits[d] = lemon</code></p>
+<hr>
+<h3 id="PHP中定义一个全局变量的两种方式"><a href="#PHP中定义一个全局变量的两种方式" class="headerlink" title="PHP中定义一个全局变量的两种方式:"></a>PHP中定义一个全局变量的两种方式:</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">$a = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">	$foo = <span class="string">"local variable"</span>;</div><div class="line">	<span class="keyword">global</span> $a;</div><div class="line">	$a = $a*$a;</div><div class="line">	<span class="keyword">echo</span> <span class="string">'$foo in global scope: '</span> . $GLOBALS[<span class="string">"foo"</span>] . <span class="string">"&lt;br&gt;"</span>;</div><div class="line">	<span class="keyword">echo</span> <span class="string">'$foo in current scope: '</span> . $foo . <span class="string">"&lt;br&gt;"</span>;</div><div class="line">	<span class="keyword">echo</span> $a;</div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line">$foo = <span class="string">"Example content"</span>;</div><div class="line">test();</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</div><div class="line"><span class="keyword">echo</span> $a;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>以上输出:</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$foo <span class="keyword">in</span> <span class="built_in">global</span> scope: Example content</div><div class="line">$foo <span class="keyword">in</span> current scope: <span class="built_in">local</span> <span class="built_in">variable</span></div><div class="line"><span class="number">100</span></div><div class="line"><span class="number">100</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="引用-reference-in-php"><a href="#引用-reference-in-php" class="headerlink" title="引用(reference in php)"></a>引用(reference in php)</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">$c = <span class="number">100</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cc</span><span class="params">(&amp;$a)</span></span>&#123;</div><div class="line">$a = $a<span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line">cc($c);</div><div class="line"><span class="keyword">echo</span> $c;</div></pre></td></tr></table></figure>
+<p>此时$c 为99.(类比c语言中的指针)</p>
+<hr>
+<h3 id="foo-和foo-的区别："><a href="#foo-和foo-的区别：" class="headerlink" title="@foo()  和foo() 的区别："></a>@foo()  和foo() 的区别：</h3><p>加上@之后，后面的warning，甚至严重错误都会被屏蔽输出，所以慎用此符号.</p>
+<hr>
+<h3 id="a-的用法"><a href="#a-的用法" class="headerlink" title="$$a 的用法"></a>$$a 的用法</h3><figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="php"><span class="meta">&lt;?php</span></span></span></div><div class="line">$a = <span class="string">"hello"</span>;</div><div class="line">$$a = <span class="string">"world"</span>;</div><div class="line"><span class="keyword">echo</span> $a.$<span class="template-variable">&#123;$a&#125;</span><span class="xml"><span class="php">.<span class="string">"||"</span>.$hello;</span></span></div><div class="line"> </div><div class="line"><span class="comment">//$$a   =&gt;相当于 $</span><span class="template-variable">&#123;参数&#125;</span><span class="xml"><span class="php"> 而这个参数又是一个$a</span></span></div></pre></td></tr></table></figure>
+<p>输出: <code>helloworld||world</code>.</p>
+<p><em>记于一大波实习生面试前夕</em><br><strong><em>[本篇·完]</em></strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -567,169 +733,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2013/12/27/江城遇上地铁,学渣遇上期末考试/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Percy">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Percy">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Percy" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/12/27/江城遇上地铁,学渣遇上期末考试/" itemprop="url">
-                  江城遇上地铁,学渣遇上期末考试
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-12-27T20:10:45+08:00">
-                2013-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/个斑马的武汉/" itemprop="url" rel="index">
-                    <span itemprop="name">个斑马的武汉</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2013/12/27/江城遇上地铁,学渣遇上期末考试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/27/江城遇上地铁,学渣遇上期末考试/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>&emsp;不是每一科都是复习几天能hold住的(你这个学渣!)<br>&emsp;呵呵O(∩_∩)O~</p>
-<p>&emsp;记得之前的什么概率论,线性代数,数据库都是复习几天就妥妥的.殊不知今年碰到组成原理了.明天就考试却静不下心来看,是要过年了吗？</p>
-<p>&emsp;其实,还有数据结构和算法,这几个比较难的科目我都是过的很心虚的.得找时间把这几科挨个看看.不然明年面试的时候就悲剧了.</p>
-<p>&emsp;对了,我现在在工程图书馆5楼的自习室.明天就是地铁四号线开通的日子.希望4号线平稳开通,安全运行,护送这座城市的人们安全出行.</p>
-<p>&emsp;记得去年的这个时候,也就是地铁2号线开通的前一天,我也在同样的地方备考,那天飘着大雪,自习室开了空调,隐约记得大概是备考概率论,地铁正式降临江城,那天我开心得在空间发了好多地铁的照片,”梅花红”的2号线就在那样一个大雪飘飞的日子,正式和江城人民邂逅了.呵呵,一切是那么美好.</p>
-<p>&emsp;由于2号线距离1号线十几年的时间所以她来的时候格外热闹喜庆,如今的4号线貌似没有了如今的气氛,不过却难掩我心中的喜悦.不过为什么每次都有考试！不然我一定去体验她的首秀！</p>
-<p>貌似扯的有点远.<br>明天加油.</p>
-<p>回去好好睡一觉,明天早起抱佛脚.走了.<br><strong><em>[本篇·完]</em></strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
