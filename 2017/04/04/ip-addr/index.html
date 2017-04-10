@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="生活,北京," />
+  <meta name="keywords" content="计算机网络,基础知识," />
 
 
 
@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="首先回顾下cookie和session的工作方式.session id是B/S架构中, 用来维持会话状态的通信密匙,在PHP的配置中这个密匙默认的名字是: PHPSESSID, 当然你可以根据自己的喜好改成你喜欢的名字, 例如百度改成了BIDUPSID,
-以百度https://www.baidu.com/ 为例, 用户第一次访问www.baidu.com的时候, 
-由于请求头(Request He">
+<meta name="description" content="IP地址的构成IP地址可以分解为由 网络地址+主机地址 组成.例如: 192.168.1.1, 可以看成由192.168.1.0(网络地址) + 0.0.0.1(主机地址)组成.我们常说的内网机器互相通信, 其实说的就是网络地址一样的机器之间的通信.
+所以简单的根据IP地址是无法看出两个地址是否能通信的, 需要计算出IP对应的网络地址才行. 而计算出网络地址需要用到子网掩码的, 具体方法是1将IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解cookie在http请求中的工作方式">
-<meta property="og:url" content="http://stayhungry.me/2017/03/12/深入理解cookie在http请求中的工作方式/index.html">
+<meta property="og:title" content="IP地址,子网掩码,主机地址,和网络地址">
+<meta property="og:url" content="http://stayhungry.me/2017/04/04/ip-addr/index.html">
 <meta property="og:site_name" content="Percy">
-<meta property="og:description" content="首先回顾下cookie和session的工作方式.session id是B/S架构中, 用来维持会话状态的通信密匙,在PHP的配置中这个密匙默认的名字是: PHPSESSID, 当然你可以根据自己的喜好改成你喜欢的名字, 例如百度改成了BIDUPSID,
-以百度https://www.baidu.com/ 为例, 用户第一次访问www.baidu.com的时候, 
-由于请求头(Request He">
-<meta property="og:updated_time" content="2017-03-12T09:36:35.000Z">
+<meta property="og:description" content="IP地址的构成IP地址可以分解为由 网络地址+主机地址 组成.例如: 192.168.1.1, 可以看成由192.168.1.0(网络地址) + 0.0.0.1(主机地址)组成.我们常说的内网机器互相通信, 其实说的就是网络地址一样的机器之间的通信.
+所以简单的根据IP地址是无法看出两个地址是否能通信的, 需要计算出IP对应的网络地址才行. 而计算出网络地址需要用到子网掩码的, 具体方法是1将IP">
+<meta property="og:updated_time" content="2017-04-04T14:31:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解cookie在http请求中的工作方式">
-<meta name="twitter:description" content="首先回顾下cookie和session的工作方式.session id是B/S架构中, 用来维持会话状态的通信密匙,在PHP的配置中这个密匙默认的名字是: PHPSESSID, 当然你可以根据自己的喜好改成你喜欢的名字, 例如百度改成了BIDUPSID,
-以百度https://www.baidu.com/ 为例, 用户第一次访问www.baidu.com的时候, 
-由于请求头(Request He">
+<meta name="twitter:title" content="IP地址,子网掩码,主机地址,和网络地址">
+<meta name="twitter:description" content="IP地址的构成IP地址可以分解为由 网络地址+主机地址 组成.例如: 192.168.1.1, 可以看成由192.168.1.0(网络地址) + 0.0.0.1(主机地址)组成.我们常说的内网机器互相通信, 其实说的就是网络地址一样的机器之间的通信.
+所以简单的根据IP地址是无法看出两个地址是否能通信的, 需要计算出IP对应的网络地址才行. 而计算出网络地址需要用到子网掩码的, 具体方法是1将IP">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://stayhungry.me/2017/03/12/深入理解cookie在http请求中的工作方式/"/>
+  <link rel="canonical" href="http://stayhungry.me/2017/04/04/ip-addr/"/>
 
 
 
 
 
-  <title> 深入理解cookie在http请求中的工作方式 | Percy </title>
+  <title> IP地址,子网掩码,主机地址,和网络地址 | Percy </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2017/03/12/深入理解cookie在http请求中的工作方式/">
+  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2017/04/04/ip-addr/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Percy">
@@ -280,7 +277,7 @@
             
             
               
-                深入理解cookie在http请求中的工作方式
+                IP地址,子网掩码,主机地址,和网络地址
               
             
           </h2>
@@ -295,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T17:30:00+08:00">
-                2017-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-04T18:21:00+08:00">
+                2017-04-04
               </time>
             
 
@@ -318,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
                   </a>
                 </span>
 
@@ -336,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/12/深入理解cookie在http请求中的工作方式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/12/深入理解cookie在http请求中的工作方式/" itemprop="commentCount"></span>
+                <a href="/2017/04/04/ip-addr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/04/ip-addr/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,36 +360,10 @@
       
 
       
-        <h2 id="首先回顾下cookie和session的工作方式"><a href="#首先回顾下cookie和session的工作方式" class="headerlink" title="首先回顾下cookie和session的工作方式."></a>首先回顾下cookie和session的工作方式.</h2><p>session id是B/S架构中, 用来维持会话状态的通信密匙,在PHP的配置中这个密匙默认的名字是: PHPSESSID, 当然你可以根据自己的喜好改成你喜欢的名字, 例如百度改成了BIDUPSID,</p>
-<p>以百度<a href="https://www.baidu.com/" target="_blank" rel="external">https://www.baidu.com/</a> 为例, 用户第一次访问www.baidu.com的时候, </p>
-<p>由于请求头(Request Header)的cookie中没有带BIDUPSID,  百度的服务器就会认为这是一个新的会话, </p>
-<p>会在服务端给这次会话生成一个唯一标识的session id, (如果具体在PHP代码里,就是session_start()这个函数),同时会在http请求的Response Header 中将这个session id带给浏览器.(这其实是在告诉浏览器,你保存好这个密匙, 下次你来找我的时候,请带上这个钥匙, 这样我就还认识你.) 反应在请求的response header里,就是下面这行:<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:<span class="attr">BIDUPSID=D5C1249DB29F3D68F9D36E64210;</span> <span class="attr">expires=Thu,</span> <span class="number">31</span>-Dec-<span class="number">37</span> <span class="number">23</span>:<span class="number">55</span>:<span class="number">55</span> GMT; <span class="attr">max-age=2147483647;</span> <span class="attr">path=/;</span> <span class="attr">domain=.baidu.com</span></div></pre></td></tr></table></figure></p>
-<p>这个session id就是key=BIDUPSID, value=D5C1249DB59C429F3D68F9D36E642E90这样一个结构, (此时,在百度的服务器端会生成以value命名的一个文件,用于记录这个用户的访问信息.)</p>
-<p>此时http请求response之后, 浏览器请求接收到response中的Set-Cookie命令之后,就会在浏览器中设置cookie值BIDUPSID=D5C1249DB59C429F3D68F9D36E642E90, 并在以后请求<code>*.baidu.com</code>这类域名时都带上这个cookie值, 即Request Header中带上<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">cookie:</span> BIDUPSID=D5C1249DB59C429F3D68F9D36E642E90</div></pre></td></tr></table></figure></p>
-<p>这样服务器就可以通过这个密匙来辨别请求来自哪个用户, 应用到实际中, 即可以作为记住登录状态之用.</p>
-<h2 id="如何操作cookie"><a href="#如何操作cookie" class="headerlink" title="如何操作cookie"></a>如何操作cookie</h2><ol>
-<li><p>如何删除cookie?</p>
-<p> 首先明确, Server(服务器)和client(浏览器)都可以操作cookie</p>
-<ul>
-<li><p><strong>Server端删除cookie.</strong> cookie存在于客户端, server端是无法直接对cookie值进行删除的.  服务器端删除cookie, 可以通过如下的函数设置. 实现原理是通过在请求的返回头中设置cookie的过期时间来达到让浏览器清除cookie的效果. </p>
-  <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">setcookie</span>(<span class="string">"user_id"</span>,<span class="string">""</span>, time()-<span class="number">86400</span>*<span class="number">7</span>, <span class="string">"/"</span>, <span class="string">'.domain.com'</span>);</div></pre></td></tr></table></figure>
-<p>  这个函数,会让http请求的返回头中带上</p>
-  <figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:<span class="attr">user_id=111112222;</span> <span class="attr">expires=Wed,</span> <span class="number">01</span>-Mar-<span class="number">2017</span> <span class="number">08</span>:<span class="number">50</span>:<span class="number">52</span> GMT; <span class="attr">Max-Age=-604800;</span> <span class="attr">path=/;</span> <span class="attr">domain=.ganji.com</span></div></pre></td></tr></table></figure>
-<p>  这样这样一个参数, 表示的就是让浏览器设置user_id这个cookie过期.</p>
-</li>
-<li><strong>浏览器端删除cookie就简单了</strong>,直接用JavaScript操作cookie过期即可 .</li>
-</ul>
-</li>
-<li>cookie的正确使用姿势?<ul>
-<li>在每次http请求中, 存储在cookie中的数据都被带上, 因此什么都往cookie存的话,无疑增加了网络开销. 所以在cookie之后又出现了localstorage专门用于存储. 而cookie则是用于存放服务端和客户端交互用到的数据, 例如session id这类身份认证等信息, 可以减少每次重复认证的操作, 是应该放在cookie里. 但是一些不是每次都需要发送给服务器的数据, 就不应该放在cookie里, 而是放在localstorage里. 当然在localstorage出现之前, cookie一度被滥用, 当做浏览器存储信息的工具了</li>
-</ul>
-</li>
-<li><p>生产环境中如何合理的生成cookie?</p>
-<ul>
-<li>生成cookie可以在浏览器也可以在服务器生成. 什么样的方式才是正确的呢<br>这个得看使用场景来决定, 例如PHPSESSION这类密匙性质的cookie, 是应该在服务端生成. 一些其它的值, 例如某网站需要生成一个唯一标示用户的字符串又不涉及到安全的,这种则可以放在客户端利用JavaScript代码生成的, 这样可以节省请求中的网络消耗</li>
-</ul>
-</li>
-</ol>
+        <h2 id="IP地址的构成"><a href="#IP地址的构成" class="headerlink" title="IP地址的构成"></a>IP地址的构成</h2><p>IP地址可以分解为由 网络地址+主机地址 组成.<br>例如: 192.168.1.1, 可以看成由192.168.1.0(网络地址) + 0.0.0.1(主机地址)组成.<br>我们常说的内网机器互相通信, 其实说的就是<code>网络地址</code>一样的机器之间的通信.</p>
+<p>所以简单的根据IP地址是无法看出两个地址是否能通信的, 需要计算出IP对应的网络地址才行. 而计算出网络地址需要用到子网掩码的, 具体方法是<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">将<span class="built_in">IP</span>地址和子网掩码转换成二进制, 再进行与运算,再将与运算的结果变成十进制,即可得出对应的网络地址</div></pre></td></tr></table></figure></p>
+<p>举例:<br>1号机的IP地址为192.168.0.1 ,子网掩码为255.255.255.192; 2号机的IP地址为192.168.0.200, 子网掩码为255.255.255.192. 现在想知道1,2号机能否正常通信, 根据上面的公式,计算如下:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1号机:</div><div class="line">		192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.1</span> ••••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.00000001</span></div><div class="line">		255<span class="selector-class">.255</span><span class="selector-class">.255</span><span class="selector-class">.192</span>	••••••••• 11111111<span class="selector-class">.11111111</span><span class="selector-class">.11111111</span><span class="selector-class">.11000000</span></div><div class="line">与运算<span class="selector-tag">----------------------------------------------------------------</span></div><div class="line">网络地址:	192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.0</span> ••••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.00000000</span></div><div class="line">*********************************分割线*******************************</div><div class="line">2号机:</div><div class="line">		192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.200</span> ••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.11001000</span></div><div class="line">		255<span class="selector-class">.255</span><span class="selector-class">.255</span><span class="selector-class">.192</span>	••••••••• 11111111<span class="selector-class">.11111111</span><span class="selector-class">.11111111</span><span class="selector-class">.11000000</span></div><div class="line">与运算<span class="selector-tag">----------------------------------------------------------------</span></div><div class="line">网络地址:	192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.192</span> ••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.11000000</span></div></pre></td></tr></table></figure></p>
+<p>1号机的网络地址为192.168.0.0与2号机的192.168.0.192不一样,所以不通</p>
 
       
     </div>
@@ -416,9 +387,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活/" rel="tag"># 生活</a>
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
           
-            <a href="/tags/北京/" rel="tag"># 北京</a>
+            <a href="/tags/基础知识/" rel="tag"># 基础知识</a>
           
         </div>
       
@@ -427,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/27/我是如何将黑中介告上法庭的/" rel="next" title="我是如何将黑中介告上法庭的">
-                <i class="fa fa-chevron-left"></i> 我是如何将黑中介告上法庭的
+              <a href="/2017/03/12/深入理解cookie在http请求中的工作方式/" rel="next" title="深入理解cookie在http请求中的工作方式">
+                <i class="fa fa-chevron-left"></i> 深入理解cookie在http请求中的工作方式
               </a>
             
           </div>
@@ -436,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/04/ip-addr/" rel="prev" title="IP地址,子网掩码,主机地址,和网络地址">
-                IP地址,子网掩码,主机地址,和网络地址 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,10 +421,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/12/深入理解cookie在http请求中的工作方式/"
-     data-title="深入理解cookie在http请求中的工作方式"
+        <div class="ds-share flat" data-thread-key="2017/04/04/ip-addr/"
+     data-title="IP地址,子网掩码,主机地址,和网络地址"
      data-content=""
-     data-url="http://stayhungry.me/2017/03/12/深入理解cookie在http请求中的工作方式/">
+     data-url="http://stayhungry.me/2017/04/04/ip-addr/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -484,8 +451,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/12/深入理解cookie在http请求中的工作方式/"
-           data-title="深入理解cookie在http请求中的工作方式" data-url="http://stayhungry.me/2017/03/12/深入理解cookie在http请求中的工作方式/">
+      <div class="ds-thread" data-thread-key="2017/04/04/ip-addr/"
+           data-title="IP地址,子网掩码,主机地址,和网络地址" data-url="http://stayhungry.me/2017/04/04/ip-addr/">
       </div>
     
   </div>

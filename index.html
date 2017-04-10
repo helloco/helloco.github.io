@@ -251,6 +251,160 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2017/04/04/ip-addr/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Percy">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Percy">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Percy" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/04/ip-addr/" itemprop="url">
+                  IP地址,子网掩码,主机地址,和网络地址
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-04T18:21:00+08:00">
+                2017-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/04/ip-addr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/04/ip-addr/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="IP地址的构成"><a href="#IP地址的构成" class="headerlink" title="IP地址的构成"></a>IP地址的构成</h2><p>IP地址可以分解为由 网络地址+主机地址 组成.<br>例如: 192.168.1.1, 可以看成由192.168.1.0(网络地址) + 0.0.0.1(主机地址)组成.<br>我们常说的内网机器互相通信, 其实说的就是<code>网络地址</code>一样的机器之间的通信.</p>
+<p>所以简单的根据IP地址是无法看出两个地址是否能通信的, 需要计算出IP对应的网络地址才行. 而计算出网络地址需要用到子网掩码的, 具体方法是<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">将<span class="built_in">IP</span>地址和子网掩码转换成二进制, 再进行与运算,再将与运算的结果变成十进制,即可得出对应的网络地址</div></pre></td></tr></table></figure></p>
+<p>举例:<br>1号机的IP地址为192.168.0.1 ,子网掩码为255.255.255.192; 2号机的IP地址为192.168.0.200, 子网掩码为255.255.255.192. 现在想知道1,2号机能否正常通信, 根据上面的公式,计算如下:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1号机:</div><div class="line">		192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.1</span> ••••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.00000001</span></div><div class="line">		255<span class="selector-class">.255</span><span class="selector-class">.255</span><span class="selector-class">.192</span>	••••••••• 11111111<span class="selector-class">.11111111</span><span class="selector-class">.11111111</span><span class="selector-class">.11000000</span></div><div class="line">与运算<span class="selector-tag">----------------------------------------------------------------</span></div><div class="line">网络地址:	192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.0</span> ••••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.00000000</span></div><div class="line">*********************************分割线*******************************</div><div class="line">2号机:</div><div class="line">		192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.200</span> ••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.11001000</span></div><div class="line">		255<span class="selector-class">.255</span><span class="selector-class">.255</span><span class="selector-class">.192</span>	••••••••• 11111111<span class="selector-class">.11111111</span><span class="selector-class">.11111111</span><span class="selector-class">.11000000</span></div><div class="line">与运算<span class="selector-tag">----------------------------------------------------------------</span></div><div class="line">网络地址:	192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.192</span> ••••••••••• 11000000<span class="selector-class">.10101000</span><span class="selector-class">.00000000</span><span class="selector-class">.11000000</span></div></pre></td></tr></table></figure></p>
+<p>1号机的网络地址为192.168.0.0与2号机的192.168.0.192不一样,所以不通</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2017/03/12/深入理解cookie在http请求中的工作方式/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -543,7 +697,7 @@
       
         
           
-            <p><img src="https://i.imgur.com/3TeUPeN.jpg" alt=""></p>
+            <p><img src="https://wx3.sinaimg.cn/mw690/7e82ea52ly1fei254bwqrj20qo0zkgr2.jpg" alt=""></p>
 <p><strong>你也许注意到我把这篇文章归类到”教程”目录下了,没错,这就是一篇教你如何诉讼/打官司的入门教程.</strong></p>
 <blockquote>
 <p>事情的起因是这样的,Percy租的房子2016年11月7日到期,最后一个季度的房租交给中介之后,黑心中介没有再往上级的房东交租,期间房子停水,还被贴”赶紧搬离”,”房租到期”等告示.跟中介交涉无果,租金/押金也不退.收集证据之后,percy将黑中介告上法庭.下面说一下从准备材料到开庭都经历了哪些步骤.</p>
@@ -603,222 +757,6 @@
 <li>为了以防被告不接收传票,如果你不知道被告身份证号或者详细住址,请不要提前告诉他你将要起诉他.让传票告诉他他被告了,就行了.</li>
 </ul>
 </blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://stayhungry.me/2016/09/17/shadowsockets服务搭建教程/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Percy">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Percy">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Percy" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/shadowsockets服务搭建教程/" itemprop="url">
-                  shadowsockets服务搭建教程
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-17T17:14:37+08:00">
-                2016-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/09/17/shadowsockets服务搭建教程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/shadowsockets服务搭建教程/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>晚饭后程序员percy坐在人体力学座椅上,熟练的输入<code>google.com/ncr</code>准备查点资料,轻点回车,发现</p>
-<center><b><code>Proxy error!</code><b></b></b></center>
-
-
-<p>买的vpn又挂了,这是何等卧槽!</p>
-<p>嗯,自己动手丰衣足食,于是精挑细选之后,percy选择了送十美刀优惠券的digitalocean的VPS:<a href="https://www.digitalocean.com/?refcode=2fa5db664d0f" target="_blank" rel="external">https://www.digitalocean.com/?refcode=2fa5db664d0f</a>,使用这个链接注册可以送10美元代金券,无门槛使用~</p>
-<h2 id="搭建shadowsockets服务步骤"><a href="#搭建shadowsockets服务步骤" class="headerlink" title="搭建shadowsockets服务步骤"></a>搭建shadowsockets服务步骤</h2><ul>
-<li><p>注册完成填写好信用卡等信息之后,进入<a href="https://cloud.digitalocean.com/droplets" target="_blank" rel="external">https://cloud.digitalocean.com/droplets</a>,点击右上角<code>Create Droplet</code>按钮,</p>
-<ul>
-<li><code>Choose an image</code>菜单选择Centos 6.8*64 .[为避免你在安装的过程中出现不可描述的问题,此处以Centos 6.8*64为例]</li>
-<li><p><code>Choose a size</code>选择<code>$5/mo</code>即5美元每月的套餐,土豪随意.</p>
-</li>
-<li><p>其他没提及的地方保持默认即可.</p>
-</li>
-<li><p>滚动到页面到最下面,点击<em>Create</em>    </p>
-</li>
-<li>此时你vps已经购买好了,正常情况等待10秒钟左右就会生效,digitalocean会给你发一封邮件,邮件里包含了IP,登录vps的用户名,以及初始密码,</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>根据邮件中提供的用户名密码ssh登录vps.并更改密码,[digitalocean强制要求].</li>
-<li><p>依次执行以下命令安装shadowsockets</p>
-  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> epel-<span class="keyword">release</span></div><div class="line">yum <span class="keyword">update</span></div><div class="line">yum <span class="keyword">install</span> python-setuptools m2crypto supervisor</div><div class="line">easy_install pip</div><div class="line">pip <span class="keyword">install</span> shadowsocks</div></pre></td></tr></table></figure>
-<ul>
-<li>注意:如果在最后一步安装<code>pip install shadowsocks</code>安装shadowsocks的时候提示Python的版本过低,则需升级Python版本,并用指定的pip包去安装shadowsocks即可,例如我升级之后的安装命令为:<code>/usr/local/bin/pip2.7 install shadowsocks</code>,这表示我用的是2.7版本的pip包安装shadowsocks.</li>
-</ul>
-</li>
-<li><p>至此shadowsockets已经安装成功,现在需要配置shadowsockets.</p>
-<ul>
-<li><p>执行命令新建文件:    <code>vim /etc/shadowsocks.json</code>,并将以下配置粘贴到<code>/etc/shadowsocks.json</code>中</p>
-  <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</div><div class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</div><div class="line">    <span class="attr">"password"</span>:<span class="string">"mypassword"</span>,</div><div class="line">    <span class="attr">"timeout"</span>:<span class="number">600</span>,</div><div class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>server_port和password可以修改成自定义的,并保存文件</p>
-</li>
-<li><p>执行命令<code>vim /etc/supervisord.conf</code>编辑此配置文件,在文件的末尾加入以下代码</p>
-  <figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="section">[program:shadowsocks]</span></div><div class="line"><span class="attr">command</span>=ssserver -c /etc/shadowsocks.json</div><div class="line"><span class="attr">autostart</span>=<span class="literal">true</span></div><div class="line"><span class="attr">autorestart</span>=<span class="literal">true</span></div><div class="line"><span class="attr">user</span>=root</div><div class="line"><span class="attr">log_stderr</span>=<span class="literal">true</span></div><div class="line"><span class="attr">logfile</span>=/var/log/shadowsocks.log</div></pre></td></tr></table></figure>
-<p>  保存该文件并退出</p>
-</li>
-</ul>
-</li>
-<li><p>执行命令编辑文件<code>vim /etc/rc.local</code>,</p>
-<p>  <img src="https://ws1.sinaimg.cn/mw690/7e82ea52jw1f8ooic5lycj20oa04i3zz.jpg" alt="de"><br>  按照上图红色方框位置添加<code>service supervisord start</code>这一行,保存文件</p>
-</li>
-<li><p>执行<code>rebooot</code>命令,重启vps.重启成功之后执行<code>service supervisord status</code>看看服务是不是在running的状态,如果是恭喜你大功告成了</p>
-</li>
-</ul>
-<hr>
-<h2 id="客户端推荐"><a href="#客户端推荐" class="headerlink" title="客户端推荐"></a>客户端推荐</h2><p>至此你的vps上已经安装了shadowsocks,下面是几个平台的客户端下载推荐:</p>
-<ul>
-<li><p>PC客户端:</p>
-<p>   <a href="https://sourceforge.net/projects/shadowsocksgui/files/dist/" target="_blank" rel="external">https://sourceforge.net/projects/shadowsocksgui/files/dist/</a>.WIN8,WIN10 用户下载<code>Shadowsocks-win-dotnet4.0-xxx</code>的版本</p>
-</li>
-<li><p>IOS客户端是付费的.</p>
-<ul>
-<li><p>percy用的是<code>shadowrockets</code>,售价6RMB. <a href="https://itunes.apple.com/us/app/shadowrocket/id932747118?mt=8" target="_blank" rel="external">shadowrocket in itunes</a></p>
-</li>
-<li><p>还有一款app叫<code>shadowsocks</code>,售价12RMB,<a href="https://itunes.apple.com/cn/app/shadowsocks/id1124747626?l=en&amp;mt=8" target="_blank" rel="external">shadowsocks in itunes</a></p>
-</li>
-<li><p>这两款都有iPad和iPhone版本.</p>
-</li>
-</ul>
-</li>
-<li>Android机器,<a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">shadowsocks for Android</a></li>
-</ul>
-<p>本文介绍的是在digitalocean平台上的vps安装shadowsocks的过程,其它靠谱vps提供商如:大名鼎鼎的Linode,便宜好用的搬瓦工,大家视自己的实际情况选择即可.</p>
-<p><strong><em>[本篇·完]</em></strong></p>
 
           
         
